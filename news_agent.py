@@ -1,5 +1,6 @@
 """Free Indonesia–Cambodia gambling-policy news monitor (no AI API needed)."""
 import hashlib
+from html import escape
 import json
 import os
 import re
@@ -100,7 +101,7 @@ def get_entries():
 def send_message(token, chat_id, text):
     response = requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
                              json={"chat_id": chat_id, "text": text,
-                                   "disable_web_page_preview": True},
+                                   "disable_web_page_preview": True, "parse_mode": "HTML"},
                              timeout=25)
     response.raise_for_status()
     payload = response.json()
@@ -128,9 +129,18 @@ def main():
     header += "Berita baru dari RSS, bukan analisis AI atau verifikasi independen.\n"
     chunks = [header]
     for idx, item in enumerate(new, 1):
-        source = item.get('source', item['category'])
-        title = re.sub(r"[\x00-\x1f]", " ", item["title"])[:220]
-        chunks.append(f"\n{idx}. {item['category']}\n{title}\n🗞 Sumber: {source}\n📅 {item['published']}\n🔗 {item['link']}\n")
+        source = escape(str(item.get("source", item["category"])))
+        category = escape(item["category"])
+        title = escape(re.sub(r"[\\x00-\\x1f]", " ", item["title"])[:220])
+        published = escape(item["published"])
+        link = escape(item["link"], quote=True)
+        chunks.append(
+            f"\\n<b>{idx}. {category}</b>\\n"
+            f"<b>{title}</b>\\n"
+            f"🗞 Sumber: {source}\\n"
+            f"📅 {published}\\n"
+            f'🔗 <a href="{link}">Baca Berita</a>\\n'
+        )
     # Split under Telegram's 4096-character text limit.
     messages, buf = [], ""
     for chunk in chunks:
