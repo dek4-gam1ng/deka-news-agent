@@ -13,11 +13,58 @@ import requests
 from bs4 import BeautifulSoup
 
 STATE = Path("seen_news.json")
+# News discovery restricted to identifiable publishers; verify stories at source.
 SEARCHES = [
-    ("🇮🇩 Indonesia", "judi online penindakan OR pemblokiran OR PPATK OR Komdigi when:7d", "id", "ID"),
-    ("🇰🇭 Cambodia", "Cambodia online gambling crackdown arrests cyber scam when:7d", "en", "KH"),
-    ("🇮🇩🇰🇭 Lintas negara", "Indonesia Cambodia online gambling WNI deportasi when:7d", "id", "ID"),
+    [
+        "🇰🇭 Cambodia · Phnom Penh Post",
+        "site:phnompenhpost.com Cambodia gambling OR scam OR crackdown when:14d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇰🇭 Cambodia · Khmer Times",
+        "site:khmertimeskh.com Cambodia gambling OR scam OR crackdown when:14d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇰🇭 Cambodia · CamboJA",
+        "site:cambojanews.com Cambodia gambling OR scam OR cybercrime when:14d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇰🇭 Cambodia · Cambodianess",
+        "site:cambodianess.com Cambodia gambling OR scam OR crackdown when:14d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇮🇩 Indonesia · ANTARA",
+        "site:antaranews.com judi online Kamboja penindakan when:14d",
+        "id",
+        "ID"
+    ],
+    [
+        "🇮🇩 Indonesia · Kompas",
+        "site:kompas.com judi online Kamboja penindakan when:14d",
+        "id",
+        "ID"
+    ],
+    [
+        "🇮🇩 Indonesia · Tempo",
+        "site:tempo.co judi online Kamboja penindakan when:14d",
+        "id",
+        "ID"
+    ],
+    [
+        "🌏 Lintas negara · Reuters",
+        "site:reuters.com Cambodia Indonesia online gambling scam when:14d",
+        "en",
+        "KH"
+    ]
 ]
+
 KEYWORDS = ("judi", "judol", "gambling", "casino", "betting", "scam", "penipuan", "wni", "deportasi", "pemblokiran", "ppatk")
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
 MAX_ITEMS = 7
@@ -41,7 +88,7 @@ def get_entries():
                     continue
                 identity = hashlib.sha256((title.lower() + "|" + link).encode()).hexdigest()
                 found[identity] = {
-                    "id": identity, "category": label, "title": title,
+                    "id": identity, "category": label, "source": entry.get("source", {}).get("title", label), "title": title,
                     "link": link, "published": entry.get("published", "Waktu tidak tersedia"),
                     "summary": summary[:300]
                 }
@@ -69,7 +116,10 @@ def main():
     previous = json.loads(STATE.read_text()) if STATE.exists() else {"seen": []}
     seen = set(previous.get("seen", []))
     entries = get_entries()
-    new = [e for e in entries if e["id"] not in seen][:MAX_ITEMS]
+    unseen = [e for e in entries if e["id"] not in seen]
+    cambodia = [e for e in unseen if e["category"].startswith("🇰🇭")]
+    others = [e for e in unseen if not e["category"].startswith("🇰🇭")]
+    new = (cambodia[:4] + others)[:MAX_ITEMS]
     if not new:
         print("No new relevant news; no Telegram message sent.")
         return
@@ -78,8 +128,9 @@ def main():
     header += "Berita baru dari RSS, bukan analisis AI atau verifikasi independen.\n"
     chunks = [header]
     for idx, item in enumerate(new, 1):
+        source = item.get('source', item['category'])
         title = re.sub(r"[\x00-\x1f]", " ", item["title"])[:220]
-        chunks.append(f"\n{idx}. {item['category']}\n{title}\n📅 {item['published']}\n🔗 {item['link']}\n")
+        chunks.append(f"\n{idx}. {item['category']}\n{title}\n🗞 Sumber: {source}\n📅 {item['published']}\n🔗 {item['link']}\n")
     # Split under Telegram's 4096-character text limit.
     messages, buf = [], ""
     for chunk in chunks:
