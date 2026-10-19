@@ -131,15 +131,15 @@ def main():
     for idx, item in enumerate(new, 1):
         source = escape(str(item.get("source", item["category"])))
         category = escape(item["category"])
-        title = escape(re.sub(r"[\\x00-\\x1f]", " ", item["title"])[:220])
+        title = escape(re.sub(r"[\x00-\x1f]", " ", item["title"])[:220])
         published = escape(item["published"])
         link = escape(item["link"], quote=True)
         chunks.append(
-            f"\\n<b>{idx}. {category}</b>\\n"
-            f"<b>{title}</b>\\n"
-            f"🗞 Sumber: {source}\\n"
-            f"📅 {published}\\n"
-            f'🔗 <a href="{link}">Baca Berita</a>\\n'
+            f"\n<b>{idx}. {category}</b>\n"
+            f"<b>{title}</b>\n"
+            f"🗞 Sumber: {source}\n"
+            f"📅 {published}\n"
+            f'🔗 <a href="{link}">Baca Berita</a>\n'
         )
     # Split under Telegram's 4096-character text limit.
     messages, buf = [], ""
