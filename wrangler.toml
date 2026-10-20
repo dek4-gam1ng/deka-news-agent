@@ -1,3 +1,4 @@
 name = "deka-news-agent"
 main = "src/index.js"
 compatibility_date = "2026-10-20"
+keep_vars = true
