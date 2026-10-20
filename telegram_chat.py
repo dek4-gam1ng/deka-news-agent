@@ -83,7 +83,8 @@ def groq_reply(text):
     try:
         with urllib.request.urlopen(req, timeout=30) as response:
             result = json.load(response)
-        return result["choices"][0]["message"]["content"][:3500]
+        content = result["choices"][0]["message"].get("content")
+        return content.strip()[:3500] if isinstance(content, str) and content.strip() else "AI belum menghasilkan jawaban. Coba lagi sebentar ya."
     except urllib.error.HTTPError as exc:
         print(f"Groq HTTP error: {exc.code}")
         return "AI sedang tidak tersedia atau kuotanya habis. Coba lagi nanti; /news tetap bisa."
@@ -122,6 +123,9 @@ def main():
         if chat_id == allowed and content:
             try:
                 response = answer(content)
+                if not isinstance(response, str) or not response.strip():
+                    print("Empty assistant response; using fallback message.", flush=True)
+                    response = "Maaf brek, AI belum menghasilkan jawaban. Coba kirim pertanyaan lagi."
                 for pos in range(0, len(response), 3500):
                     sent = telegram(token, "sendMessage", {"chat_id": allowed,
                                                            "text": response[pos:pos+3500],
