@@ -94,14 +94,16 @@ def answer(text):
 
 def main():
     token = os.environ["TELEGRAM_BOT_TOKEN"]
-    allowed = str(os.environ["TELEGRAM_CHAT_ID"]).strip()
+    allowed = str(os.environ["TELEGRAM_ADMIN_ID"]).strip()
     state, sha = github_state()
     offset = int(state.get("offset", 0))
     result = telegram(token, "getUpdates", {"offset": offset, "timeout": 0, "limit": 50,
                                             "allowed_updates": ["message"]})
     if not result.get("ok"):
         raise RuntimeError("Telegram getUpdates failed")
+    received = replied = skipped = 0
     for update in result.get("result", []):
+        received += 1
         uid = int(update["update_id"])
         message = update.get("message", {})
         chat_id = str(message.get("chat", {}).get("id", ""))
@@ -115,15 +117,18 @@ def main():
                                                            "disable_web_page_preview": True})
                     if not sent.get("ok"):
                         raise RuntimeError("Telegram sendMessage failed")
+                replied += 1
             except Exception:
                 # Retry this update on the next run instead of silently losing it.
                 if offset != int(state.get("offset", 0)):
                     github_state("PUT", {"offset": offset}, sha)
                 raise
+        else:
+            skipped += 1
         offset = uid + 1
     if offset != int(state.get("offset", 0)):
         github_state("PUT", {"offset": offset}, sha)
-    print(f"Telegram updates processed; offset={offset}")
+    print(f"Telegram updates processed; received={received}, replied={replied}, skipped={skipped}, offset={offset}")
 
 
 if __name__ == "__main__":
