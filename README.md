@@ -1,23 +1,27 @@
-# DEKA News Research Bot 📰
+# DEKA News Agent 📰
 
-Gratis tanpa API AI berbayar: memantau Google News RSS tentang judi online, penindakan, regulasi, scam, dan WNI di **Indonesia dan Kamboja**. Dikirim ke chat Telegram pribadi melalui **@d3kamencaribot**.
+Python 3.12+ news monitor for Indonesia and Cambodia. **No pip dependencies**. Searches Google News RSS and publisher RSS, filters headlines, deduplicates, sends Telegram reports, and optionally summarizes headline/snippet with Gemini.
 
-**Catatan:** Ini agregator berbasis kata kunci, **belum memakai model ChatGPT/OpenAI** dan tidak memverifikasi berita secara independen. Hasil bisa tidak lengkap atau keliru; selalu cek tautan sumber.
+## Run locally
 
-## Pengaturan
+```bash
+export TELEGRAM_BOT_TOKEN="your-token"
+export TELEGRAM_CHAT_ID="your-chat-id"
+# Optional:
+export GEMINI_API_KEY="your-key"
+python news_agent.py
+```
 
-1. Buka **Settings → Secrets and variables → Actions → New repository secret**.
-2. Buat `TELEGRAM_BOT_TOKEN` (token dari @BotFather; jangan bagikan atau commit).
-3. Buka @d3kamencaribot dan tekan **Start**, lalu dapatkan ID chat pribadi sendiri; simpan sebagai `TELEGRAM_CHAT_ID`. Jangan tempel token ke situs atau bot pihak ketiga.
-4. Pastikan GitHub Actions diaktifkan dan **Settings → Actions → General → Workflow permissions** diatur **Read and write permissions** agar file fingerprint berita bisa diperbarui.
-5. Buka **Actions → Deka News Research → Run workflow** untuk tes. Setelah itu workflow dijadwalkan setiap 4 jam (UTC; GitHub dapat menunda jadwal).
+GitHub Actions runs every four hours or manually. Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID under repository Settings → Secrets and variables → Actions. Optionally add GEMINI_API_KEY. Enable Actions workflow write permissions for committing seen_news.json.
 
-**Keamanan:** Repo ini public. Hanya fingerprint judul/link berita publik yang disimpan di `seen_news.json`. Jangan simpan data pribadi, token, atau isi chat dalam repo. Secrets tidak perlu dikirim ke ChatGPT.
+## Files
 
-## Struktur
+- news_agent.py: stdlib HTTP, RSS/Atom parsing, filtering, Telegram, state.
+- sources_ai.py: publisher feed discovery and optional Gemini REST summaries.
+- seen_news.json: fingerprints of delivered stories.
+- .github/workflows/news.yml: scheduled execution.
+- requirements.txt: empty; no third-party packages.
 
-- `news_agent.py`: RSS, filter berita, deduplikasi, laporan Telegram.
-- `requirements.txt`: dependensi Python.
-- `.github/workflows/news.yml`: jadwal dan eksekusi GitHub Actions.
+## Limitations
 
-**Batasan:** Bot belum membalas perintah Telegram secara real-time. GitHub Actions hanya menjalankan pemeriksaan berkala atau manual melalui UI GitHub.
+Not a conversational JARVIS yet: GitHub Actions runs on a schedule, not a persistent Telegram listener. AI summaries only use headline and RSS snippet, not full article verification. Google News may return publisher redirects. Never commit tokens or private conversations. News classification is keyword-based; validate important claims at their original sources.
