@@ -117,7 +117,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === "/setup") return activateWebhook(request, env, url);
     if (request.method === "GET" && url.pathname === "/") {
-      return json({ service: "DEKA JARVIS", status: "ready", webhook: "not automatically configured" });
+      return json({ service: "DEKA JARVIS", status: "ready", webhook: "setup at /setup", deployment: "refresh-20261020" });
     }
     if (url.pathname !== "/telegram" || request.method !== "POST") {
       return new Response("Not found", { status: 404 });
