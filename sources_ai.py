@@ -1,6 +1,5 @@
-"""Optional direct publisher RSS and Gemini summaries; failures never stop news delivery."""
+"""Discover news directly from publisher RSS feeds."""
 import hashlib
-import os
 from urllib.parse import urljoin, urlparse
 import feedparser
 import requests
@@ -48,22 +47,3 @@ def publisher_news(keywords):
             print(f"Publisher feed skipped ({category}): {exc}")
     return list(found.values())
 
-def ai_summary(item):
-    key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not key:
-        return ""
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
-    prompt = ("Ringkas secara netral dalam bahasa Indonesia maksimal dua kalimat berdasarkan judul dan "
-              "cuplikan berikut saja. Jangan mengarang fakta atau mengaku telah membaca artikel lengkap. "
-              "Jika informasi terbatas, sebutkan itu.\nJudul: " + item["title"] + "\nCuplikan: " + item["summary"])
-    try:
-        r = requests.post("https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent",
-            headers={"x-goog-api-key": key, "Content-Type": "application/json"},
-            json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"maxOutputTokens": 220}},
-            timeout=20)
-        r.raise_for_status()
-        parts = r.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
-        return " ".join(p.get("text", "") for p in parts).strip()[:550]
-    except Exception as exc:
-        print(f"AI summary skipped: {exc}")
-        return ""
