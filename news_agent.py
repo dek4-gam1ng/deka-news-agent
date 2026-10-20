@@ -11,6 +11,7 @@ from urllib.parse import quote
 
 import feedparser
 import requests
+from sources_ai import publisher_news, ai_summary
 from bs4 import BeautifulSoup
 
 STATE = Path("seen_news.json")
@@ -95,6 +96,8 @@ def get_entries():
                 }
         except Exception as exc:
             print(f"Feed failed ({label}): {exc}", file=sys.stderr)
+    for item in publisher_news(KEYWORDS):
+        found.setdefault(item['id'], item)
     return list(found.values())
 
 
@@ -126,7 +129,7 @@ def main():
         return
     header = "📰 DEKA NEWS | RISET INDONESIA–KAMBOJA\n"
     header += datetime.now(timezone.utc).strftime("UTC %d/%m/%Y %H:%M") + "\n"
-    header += "Berita baru dari RSS, bukan analisis AI atau verifikasi independen.\n"
+    header += "Berita RSS; AI opsional hanya merangkum judul/cuplikannya, bukan verifikasi.\n"
     chunks = [header]
     for idx, item in enumerate(new, 1):
         source = escape(str(item.get("source", item["category"])))
@@ -134,11 +137,14 @@ def main():
         title = escape(re.sub(r"[\x00-\x1f]", " ", item["title"])[:220])
         published = escape(item["published"])
         link = escape(item["link"], quote=True)
+        analysis = ai_summary(item)
+        analysis_line = f"🧠 AI (judul/cuplikannya): {escape(analysis)}\n" if analysis else ""
         chunks.append(
             f"\n<b>{idx}. {category}</b>\n"
             f"<b>{title}</b>\n"
             f"🗞 Sumber: {source}\n"
             f"📅 {published}\n"
+            f"{analysis_line}"
             f'🔗 <a href="{link}">Baca Berita</a>\n'
         )
     # Split under Telegram's 4096-character text limit.
