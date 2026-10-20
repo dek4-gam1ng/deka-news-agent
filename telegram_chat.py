@@ -11,9 +11,9 @@ STATE_FILE = "telegram_offset.json"
 MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
 
-def request_json(url, payload=None, headers=None):
+def request_json(url, payload=None, headers=None, method=None):
     data = json.dumps(payload).encode() if payload is not None else None
-    req = urllib.request.Request(url, data=data, headers=headers or {})
+    req = urllib.request.Request(url, data=data, headers=headers or {}, method=method)
     with urllib.request.urlopen(req, timeout=35) as response:
         return json.load(response)
 
@@ -38,7 +38,7 @@ def github_state(method="GET", state=None, sha=None):
                "content": base64.b64encode((json.dumps(state) + "\n").encode()).decode()}
     if sha:
         payload["sha"] = sha
-    return request_json(url, payload, headers)
+    return request_json(url, payload, headers, method="PUT")
 
 
 def telegram(token, method, payload):
