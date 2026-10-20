@@ -53,7 +53,7 @@ def github_state(method="GET", state=None, sha=None):
 
 
 def telegram(token, method, payload):
-    return request_json(f"{API}{token}/{method}", payload)
+    return request_json(f"{API}{token}/{method}", payload, headers={"Content-Type": "application/json"})
 
 
 def latest_news():
