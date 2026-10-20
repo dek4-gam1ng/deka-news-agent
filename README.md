@@ -1,23 +1,33 @@
-# DEKA News Research Bot 📰
+# DEKA News Agent + JARVIS 📰🤖
 
-Gratis tanpa API AI berbayar: memantau Google News RSS tentang judi online, penindakan, regulasi, scam, dan WNI di **Indonesia dan Kamboja**. Dikirim ke chat Telegram pribadi melalui **@d3kamencaribot**.
+Monitoring RSS berita Indonesia–Kamboja otomatis setiap 4 jam, serta chat Telegram via GitHub Actions setiap ~5 menit (jadwal bisa terlambat). Tidak memakai SQLite atau Gemini.
 
-**Catatan:** Ini agregator berbasis kata kunci, **belum memakai model ChatGPT/OpenAI** dan tidak memverifikasi berita secara independen. Hasil bisa tidak lengkap atau keliru; selalu cek tautan sumber.
+## Setup
 
-## Pengaturan
+1. Di **Settings → Secrets and variables → Actions**, tambahkan `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, dan `GROQ_API_KEY` dari Groq Cloud.
+2. Aktifkan GitHub Actions dan beri **Read and write permissions** pada Workflow permissions untuk menyimpan state JSON.
+3. Jalankan workflow **DEKA JARVIS Telegram Chat** secara manual sekali untuk tes, lalu kirim `/start` ke bot. Pastikan tidak ada webhook Telegram aktif, karena `getUpdates` tidak bekerja saat webhook aktif.
+4. Jalankan **Deka News Research** untuk mengetes monitoring berita.
 
-1. Buka **Settings → Secrets and variables → Actions → New repository secret**.
-2. Buat `TELEGRAM_BOT_TOKEN` (token dari @BotFather; jangan bagikan atau commit).
-3. Buka @d3kamencaribot dan tekan **Start**, lalu dapatkan ID chat pribadi sendiri; simpan sebagai `TELEGRAM_CHAT_ID`. Jangan tempel token ke situs atau bot pihak ketiga.
-4. Pastikan GitHub Actions diaktifkan dan **Settings → Actions → General → Workflow permissions** diatur **Read and write permissions** agar file fingerprint berita bisa diperbarui.
-5. Buka **Actions → Deka News Research → Run workflow** untuk tes. Setelah itu workflow dijadwalkan setiap 4 jam (UTC; GitHub dapat menunda jadwal).
+## Perintah chat
 
-**Keamanan:** Repo ini public. Hanya fingerprint judul/link berita publik yang disimpan di `seen_news.json`. Jangan simpan data pribadi, token, atau isi chat dalam repo. Secrets tidak perlu dikirim ke ChatGPT.
+- `/start`, `/help`: bantuan
+- `/news`, `/latest`: berita RSS terbaru
+- `/status`: status bot
+- Teks biasa: pertanyaan ke Groq AI (model default `llama-3.1-8b-instant`)
 
-## Struktur
+Tanpa `GROQ_API_KEY`, perintah dasar tetap bisa dipakai.
 
-- `news_agent.py`: RSS, filter berita, deduplikasi, laporan Telegram.
-- `requirements.txt`: dependensi Python.
-- `.github/workflows/news.yml`: jadwal dan eksekusi GitHub Actions.
+## File
 
-**Batasan:** Bot belum membalas perintah Telegram secara real-time. GitHub Actions hanya menjalankan pemeriksaan berkala atau manual melalui UI GitHub.
+- `news_agent.py`: monitoring berita dan laporan Telegram
+- `sources_ai.py`: pencarian RSS publisher (nama lama; tidak memanggil AI)
+- `telegram_chat.py`: polling Telegram, perintah, dan Groq
+- `seen_news.json`: fingerprint berita publik
+- `telegram_offset.json`: offset polling Telegram, dibuat otomatis lewat GitHub API
+- `.github/workflows/news.yml`: monitoring setiap 4 jam
+- `.github/workflows/telegram-chat.yml`: polling chat setiap 5 menit
+
+## Batasan & privasi
+
+Repo ini publik. **Jangan simpan riwayat chat atau API key dalam JSON repo**. Yang disimpan untuk chat hanya nomor offset update Telegram. Groq menerima pesan yang dikirim untuk fitur AI. Respons tidak real-time; GitHub Actions dapat terlambat/terlewat. Bot hanya merespons `TELEGRAM_CHAT_ID` yang diizinkan. Perintah `/news` mengambil RSS baru, bukan riwayat percakapan.
