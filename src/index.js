@@ -43,7 +43,7 @@ async function answer(text, env) {
     });
     if (!response.ok) {
       console.error("Groq HTTP", response.status);
-      return "AI sedang tidak tersedia atau kuotanya habis. Coba lagi nanti.";
+      return `Groq gagal (HTTP ${response.status}). Beri tahu admin kode ini, tanpa mengirim API key.`;
     }
     const data = await response.json();
     return data?.choices?.[0]?.message?.content?.trim() || "AI belum menghasilkan jawaban. Coba lagi sebentar ya.";
