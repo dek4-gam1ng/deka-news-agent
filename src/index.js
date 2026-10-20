@@ -35,7 +35,7 @@ async function answer(text, env) {
       method: "POST",
       headers: { "authorization": `Bearer ${env.GROQ_API_KEY}`, "content-type": "application/json" },
       body: JSON.stringify({
-        model: env.GROQ_MODEL || "llama-3.1-8b-instant",
+        model: env.GROQ_MODEL || "openai/gpt-oss-20b",
         messages: [{ role: "system", content: "Kamu DEKA JARVIS, asisten berbahasa Indonesia santai. Jawab singkat, akurat, dan jangan mengarang fakta atau tautan." },
           { role: "user", content: text.slice(0, 3000) }],
         max_tokens: 500, temperature: 0.3
