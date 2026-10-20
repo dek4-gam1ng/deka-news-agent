@@ -72,8 +72,21 @@ Jangan masukkan token bot atau API key di sini.</p>
 const privateHeaders = { "cache-control": "no-store", "referrer-policy": "no-referrer",
   "x-content-type-options": "nosniff" };
 async function activateWebhook(request, env, url) {
-  if (!env.TELEGRAM_BOT_TOKEN || !env.WEBHOOK_SECRET) {
-    return new Response("Secrets Cloudflare belum lengkap.", { status: 503, headers: privateHeaders });
+  const missing = [
+    !env.TELEGRAM_BOT_TOKEN && "TELEGRAM_BOT_TOKEN",
+    !env.WEBHOOK_SECRET && "WEBHOOK_SECRET"
+  ].filter(Boolean);
+  if (missing.length) {
+    const details = missing.map(name => `<li><code>${name}</code> belum terbaca</li>`).join("");
+    return new Response(`<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="font:16px system-ui;max-width:480px;margin:40px auto;padding:16px">
+<h2>⚠️ Secrets Cloudflare belum lengkap</h2>
+<p>Worker Production belum bisa membaca:</p><ul>${details}</ul>
+<p>Cek <b>Settings → Variables and Secrets</b> pada Worker yang sama, lalu pastikan nama dan nilainya terisi. Simpan dan deploy ulang jika perlu.</p>
+<p>Hanya nama Secret yang ditampilkan. Nilai rahasia tidak ditampilkan.</p></body></html>`, {
+      status: 503, headers: { ...privateHeaders, "content-type": "text/html; charset=utf-8" }
+    });
   }
   if (request.method === "GET") {
     return new Response(setupPage, { headers: { ...privateHeaders, "content-type": "text/html; charset=utf-8" } });
