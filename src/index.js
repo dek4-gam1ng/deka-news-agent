@@ -1,3 +1,4 @@
+// Serper deployment refresh: Google results via Serper API.
 // DEKA JARVIS — Telegram webhook for Cloudflare Workers.
 // Set TELEGRAM_BOT_TOKEN, TELEGRAM_ADMIN_ID, GROQ_API_KEY, and WEBHOOK_SECRET
 // as encrypted Worker secrets. Do not commit credentials.
