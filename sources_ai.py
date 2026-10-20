@@ -1,5 +1,7 @@
 """Publisher RSS discovery and optional Gemini summarization (stdlib only)."""
 import json
+import hashlib
+import re
 import logging
 import os
 import urllib.parse
@@ -29,8 +31,6 @@ class FeedLinks(HTMLParser):
                 self.links.append(attrs["href"])
 
 def publisher_news(keywords, *, request, parse_feed):
-    # Imported here to avoid a circular import during module initialization.
-    from news_agent import fingerprint
     found = {}
     for category, homepage in SITES:
         try:
@@ -49,9 +49,9 @@ def publisher_news(keywords, *, request, parse_feed):
                     if not any(k in (item["title"] + " " + item["summary"]).casefold() for k in keywords):
                         continue
                     item.update(category=category, source=home_host)
-                    item["id"] = fingerprint(item)
+                    item["id"] = hashlib.sha256(re.sub(r"[^\\w]+", " ", item["title"].casefold()).strip().encode("utf-8")).hexdigest()
                     found.setdefault(item["id"], item)
-        except (OSError, ValueError, Exception) as exc:
+        except Exception as exc:
             LOG.warning("Publisher feed skipped (%s): %s", category, exc)
     return list(found.values())
 
