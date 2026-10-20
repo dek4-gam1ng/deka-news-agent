@@ -6,8 +6,8 @@ Monitoring RSS berita Indonesia–Kamboja otomatis setiap 4 jam, serta chat Tele
 
 1. Di **Settings → Secrets and variables → Actions**, tambahkan `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, dan `GROQ_API_KEY` dari Groq Cloud.
 2. Aktifkan GitHub Actions dan beri **Read and write permissions** pada Workflow permissions untuk menyimpan state JSON.
-3. Jalankan workflow **DEKA JARVIS Telegram Chat** secara manual sekali untuk tes, lalu kirim `/start` ke bot. Pastikan tidak ada webhook Telegram aktif, karena `getUpdates` tidak bekerja saat webhook aktif.
-4. Jalankan **Deka News Research** untuk mengetes monitoring berita.
+3. Jalankan workflow **DEKA JARVIS** secara manual sekali untuk tes, lalu kirim `/start` ke bot. Pastikan tidak ada webhook Telegram aktif, karena `getUpdates` tidak bekerja saat webhook aktif.
+4. Workflow **DEKA JARVIS** menangani monitoring berita dan chat dalam satu workflow.
 
 ## Perintah chat
 
@@ -25,8 +25,7 @@ Tanpa `GROQ_API_KEY`, perintah dasar tetap bisa dipakai.
 - `telegram_chat.py`: polling Telegram, perintah, dan Groq
 - `seen_news.json`: fingerprint berita publik
 - `telegram_offset.json`: offset polling Telegram, dibuat otomatis lewat GitHub API
-- `.github/workflows/news.yml`: monitoring setiap 4 jam
-- `.github/workflows/telegram-chat.yml`: polling chat setiap 5 menit
+- `.github/workflows/news.yml`: satu workflow untuk monitoring berita sekitar setiap 4 jam dan polling chat tiap 5 menit
 
 ## Batasan & privasi
 
