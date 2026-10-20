@@ -14,8 +14,19 @@ MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 def request_json(url, payload=None, headers=None, method=None):
     data = json.dumps(payload).encode() if payload is not None else None
     req = urllib.request.Request(url, data=data, headers=headers or {}, method=method)
-    with urllib.request.urlopen(req, timeout=35) as response:
-        return json.load(response)
+    try:
+        with urllib.request.urlopen(req, timeout=35) as response:
+            return json.load(response)
+    except urllib.error.HTTPError as exc:
+        # Telegram errors are JSON with a human-readable description; never log URL (contains bot token).
+        if url.startswith(API):
+            try:
+                detail = json.loads(exc.read().decode("utf-8"))
+                reason = str(detail.get("description", "Unknown Telegram error"))[:200]
+            except (ValueError, UnicodeError):
+                reason = "Unknown Telegram error"
+            print(f"Telegram API {url.rsplit(chr(47), 1)[-1]} failed: HTTP {exc.code} - {reason}", flush=True)
+        raise
 
 
 def github_state(method="GET", state=None, sha=None):
