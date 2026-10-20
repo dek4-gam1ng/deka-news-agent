@@ -5,7 +5,8 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import quote
 
@@ -72,6 +73,18 @@ USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
 MAX_ITEMS = 7
 
 
+def published_at(item):
+    """Return a timezone-aware publication time, or None if unavailable."""
+    try:
+        value = parsedate_to_datetime(item.get("published", ""))
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=timezone.utc)
+        return value.astimezone(timezone.utc)
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+
 def get_entries():
     found = {}
     for label, query, lang, country in SEARCHES:
@@ -120,10 +133,13 @@ def main():
     previous = json.loads(STATE.read_text()) if STATE.exists() else {"seen": []}
     seen = set(previous.get("seen", []))
     entries = get_entries()
-    unseen = [e for e in entries if e["id"] not in seen]
-    cambodia = [e for e in unseen if e["category"].startswith("🇰🇭")]
-    others = [e for e in unseen if not e["category"].startswith("🇰🇭")]
-    new = (cambodia[:4] + others)[:MAX_ITEMS]
+    now = datetime.now(timezone.utc)
+    dated = [(e, published_at(e)) for e in entries if e["id"] not in seen]
+    recent = [(e, dt) for e, dt in dated if dt is not None and now - timedelta(hours=24) <= dt <= now + timedelta(minutes=10)]
+    fallback = [(e, dt) for e, dt in dated if dt is not None and now - timedelta(days=3) <= dt < now - timedelta(hours=24)]
+    recent.sort(key=lambda pair: pair[1], reverse=True)
+    fallback.sort(key=lambda pair: pair[1], reverse=True)
+    new = [e for e, _ in (recent + fallback)[:MAX_ITEMS]]
     if not new:
         print("No new relevant news; no Telegram message sent.")
         return
