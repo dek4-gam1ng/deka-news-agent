@@ -98,15 +98,8 @@ async function activateWebhook(request, env, url) {
     return new Response(setupPage, { headers: { ...privateHeaders, "content-type": "text/html; charset=utf-8" } });
   }
   if (request.method !== "POST") return new Response("Method not allowed", { status: 405 });
-  // Accept same-origin browser forms even if Origin is omitted by the browser/proxy.
-  // Reject explicitly cross-origin submissions; the secret is still required.
-  const origin = request.headers.get("origin");
-  const fetchSite = request.headers.get("sec-fetch-site");
-  const referer = request.headers.get("referer");
-  const sameOriginReferer = referer && (() => { try { return new URL(referer).origin === url.origin; } catch { return false; } })();
-  if ((origin && origin !== url.origin) || fetchSite === "cross-site" || (!origin && !sameOriginReferer && fetchSite !== "same-origin")) {
-    return new Response("Invalid origin", { status: 403, headers: privateHeaders });
-  }
+  // Activation is authorized by the strong WEBHOOK_SECRET in the POST body.
+  // Do not depend on Origin/Referer headers, which may be modified by proxies.
   if (Number(request.headers.get("content-length") || 0) > 4096) {
     return new Response("Request too large", { status: 413, headers: privateHeaders });
   }
