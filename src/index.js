@@ -53,9 +53,69 @@ async function answer(text, env) {
   }
 }
 
+
+// Private activation page. Password is sent in an HTTPS POST body, never a URL.
+// The webhook secret must be a strong random value configured in Worker Secrets.
+const setupPage = `<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><title>Aktifkan DEKA JARVIS</title>
+<style>body{font:16px system-ui;max-width:440px;margin:60px auto;padding:20px;line-height:1.5}
+input,button{box-sizing:border-box;width:100%;padding:13px;margin:8px 0;font:inherit}
+button{background:#202bdf;color:white;border:0;border-radius:8px}
+input{border:1px solid #aaa;border-radius:8px}</style></head><body>
+<h2>🤖 Aktifkan DEKA JARVIS</h2><p>Masukkan WEBHOOK_SECRET yang sudah disimpan di Cloudflare.
+Jangan masukkan token bot atau API key di sini.</p>
+<form action="/setup" method="POST"><label>WEBHOOK_SECRET
+<input type="password" name="secret" required autocomplete="off"></label>
+<button type="submit">Aktifkan Telegram Webhook</button></form>
+<p>Setelah berhasil, coba kirim /start ke bot Telegram.</p></body></html>`;
+const privateHeaders = { "cache-control": "no-store", "referrer-policy": "no-referrer",
+  "x-content-type-options": "nosniff" };
+async function activateWebhook(request, env, url) {
+  if (!env.TELEGRAM_BOT_TOKEN || !env.WEBHOOK_SECRET) {
+    return new Response("Secrets Cloudflare belum lengkap.", { status: 503, headers: privateHeaders });
+  }
+  if (request.method === "GET") {
+    return new Response(setupPage, { headers: { ...privateHeaders, "content-type": "text/html; charset=utf-8" } });
+  }
+  if (request.method !== "POST") return new Response("Method not allowed", { status: 405 });
+  // Browser form submissions are accepted only from this Worker's own origin.
+  if (request.headers.get("origin") !== url.origin) {
+    return new Response("Invalid origin", { status: 403, headers: privateHeaders });
+  }
+  if (Number(request.headers.get("content-length") || 0) > 4096) {
+    return new Response("Request too large", { status: 413, headers: privateHeaders });
+  }
+  const form = await request.formData();
+  const supplied = form.get("secret");
+  if (typeof supplied !== "string" || supplied.length > 256 || supplied !== env.WEBHOOK_SECRET) {
+    return new Response("Secret salah. Kembali dan coba lagi.", { status: 403, headers: privateHeaders });
+  }
+  const response = await fetch(`${TG}${env.TELEGRAM_BOT_TOKEN}/setWebhook`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      url: `${url.origin}/telegram`,
+      secret_token: env.WEBHOOK_SECRET,
+      allowed_updates: ["message"],
+      drop_pending_updates: false
+    })
+  });
+  if (!response.ok) {
+    console.error("Telegram setWebhook HTTP", response.status);
+    return new Response("Aktivasi gagal. Cek token bot di Cloudflare.", { status: 502, headers: privateHeaders });
+  }
+  const result = await response.json();
+  if (!result.ok) return new Response("Telegram menolak aktivasi webhook.", { status: 502, headers: privateHeaders });
+  return new Response("✅ Webhook berhasil aktif! Sekarang coba kirim /start ke JARVIS di Telegram.", {
+    headers: { ...privateHeaders, "content-type": "text/plain; charset=utf-8" }
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/setup") return activateWebhook(request, env, url);
     if (request.method === "GET" && url.pathname === "/") {
       return json({ service: "DEKA JARVIS", status: "ready", webhook: "not automatically configured" });
     }
