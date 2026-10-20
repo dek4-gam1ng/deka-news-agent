@@ -78,12 +78,18 @@ async function activateWebhook(request, env, url) {
   ].filter(Boolean);
   if (missing.length) {
     const details = missing.map(name => `<li><code>${name}</code> belum terbaca</li>`).join("");
+    const diagnostics = ["TELEGRAM_BOT_TOKEN", "WEBHOOK_SECRET", "TELEGRAM_ADMIN_ID", "GROQ_API_KEY"].map(name => {
+      const bound = Object.prototype.hasOwnProperty.call(env, name);
+      const type = typeof env[name];
+      return `<li><code>${name}</code>: ${bound ? "bound" : "absent"} (type: ${type})</li>`;
+    }).join("");
     return new Response(`<!doctype html><html lang="id"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="font:16px system-ui;max-width:480px;margin:40px auto;padding:16px">
 <h2>⚠️ Secrets Cloudflare belum lengkap</h2>
 <p>Worker Production belum bisa membaca:</p><ul>${details}</ul>
 <p>Cek <b>Settings → Variables and Secrets</b> pada Worker yang sama, lalu pastikan nama dan nilainya terisi. Simpan dan deploy ulang jika perlu.</p>
+<h3>Binding diagnostics</h3><ul>${diagnostics}</ul>
 <p>Hanya nama Secret yang ditampilkan. Nilai rahasia tidak ditampilkan.</p></body></html>`, {
       status: 503, headers: { ...privateHeaders, "content-type": "text/html; charset=utf-8" }
     });
