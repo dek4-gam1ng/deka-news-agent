@@ -1,11 +1,11 @@
-"""Optional direct publisher RSS and Gemini summaries; failures never stop news delivery."""
-import hashlib
+"""Publisher RSS discovery and optional Gemini summarization (stdlib only)."""
+import json
+import logging
 import os
-from urllib.parse import urljoin, urlparse
-import feedparser
-import requests
-from bs4 import BeautifulSoup
+import urllib.parse
+from html.parser import HTMLParser
 
+LOG = logging.getLogger("deka_news")
 SITES = [
  ("🇰🇭 Cambodia · Phnom Penh Post", "https://www.phnompenhpost.com"),
  ("🇰🇭 Cambodia · Khmer Times", "https://www.khmertimeskh.com"),
@@ -16,54 +16,62 @@ SITES = [
  ("🇮🇩 Indonesia · Tempo", "https://www.tempo.co"),
 ]
 
-def publisher_news(keywords):
+class FeedLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []
+    def handle_starttag(self, tag, attrs):
+        if tag != "link":
+            return
+        attrs = dict(attrs)
+        if "alternate" in attrs.get("rel", "").split() and attrs.get("type", "").lower() in ("application/rss+xml", "application/atom+xml"):
+            if attrs.get("href"):
+                self.links.append(attrs["href"])
+
+def publisher_news(keywords, *, request, parse_feed):
+    # Imported here to avoid a circular import during module initialization.
+    from news_agent import fingerprint
     found = {}
     for category, homepage in SITES:
         try:
-            r = requests.get(homepage, timeout=10, headers={"User-Agent": "DekaNewsResearch/1.0"})
-            r.raise_for_status()
-            soup = BeautifulSoup(r.text, "html.parser")
-            feeds = []
-            for tag in soup.find_all("link", href=True):
-                if "alternate" in tag.get("rel", []) and tag.get("type", "").lower() in ("application/rss+xml", "application/atom+xml"):
-                    url = urljoin(r.url, tag["href"])
-                    if urlparse(url).hostname == urlparse(r.url).hostname:
-                        feeds.append(url)
-            for url in feeds[:2]:
-                fr = requests.get(url, timeout=10)
-                fr.raise_for_status()
-                for entry in feedparser.parse(fr.content).entries[:20]:
-                    title = BeautifulSoup(entry.get("title", ""), "html.parser").get_text(" ", strip=True)
-                    summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text(" ", strip=True)
-                    link = entry.get("link", "")
-                    if not title or not link or not any(k in (title + " " + summary).lower() for k in keywords):
+            parser = FeedLinks()
+            parser.feed(request(homepage, timeout=10).decode("utf-8", errors="replace"))
+            home_host = urllib.parse.urlparse(homepage).hostname
+            for href in parser.links[:2]:
+                url = urllib.parse.urljoin(homepage, href)
+                if urllib.parse.urlparse(url).hostname != home_host:
+                    continue
+                for item in parse_feed(request(url, timeout=10))[:20]:
+                    if not item["title"] or not item["link"]:
                         continue
-                    if urlparse(link).hostname != urlparse(r.url).hostname:
+                    if urllib.parse.urlparse(item["link"]).hostname != home_host:
                         continue
-                    identity = hashlib.sha256((title.lower() + "|" + link).encode()).hexdigest()
-                    found[identity] = {"id": identity, "category": category, "source": urlparse(homepage).hostname,
-                        "title": title, "link": link, "published": entry.get("published", "Waktu tidak tersedia"),
-                        "summary": summary[:300]}
-        except Exception as exc:
-            print(f"Publisher feed skipped ({category}): {exc}")
+                    if not any(k in (item["title"] + " " + item["summary"]).casefold() for k in keywords):
+                        continue
+                    item.update(category=category, source=home_host)
+                    item["id"] = fingerprint(item)
+                    found.setdefault(item["id"], item)
+        except (OSError, ValueError, Exception) as exc:
+            LOG.warning("Publisher feed skipped (%s): %s", category, exc)
     return list(found.values())
 
-def ai_summary(item):
+def ai_summary(item, *, request):
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         return ""
     model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
-    prompt = ("Ringkas secara netral dalam bahasa Indonesia maksimal dua kalimat berdasarkan judul dan "
-              "cuplikan berikut saja. Jangan mengarang fakta atau mengaku telah membaca artikel lengkap. "
-              "Jika informasi terbatas, sebutkan itu.\nJudul: " + item["title"] + "\nCuplikan: " + item["summary"])
+    prompt = ("Ringkas netral maksimal dua kalimat dalam bahasa Indonesia, hanya dari judul dan cuplikan. "
+              "Jangan mengarang fakta atau mengaku membaca artikel lengkap. Sebutkan bila informasi terbatas.\n"
+              f"Judul: {item['title']}\nCuplikan: {item['summary']}")
     try:
-        r = requests.post("https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent",
-            headers={"x-goog-api-key": key, "Content-Type": "application/json"},
-            json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"maxOutputTokens": 220}},
-            timeout=20)
-        r.raise_for_status()
-        parts = r.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
+        url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+               + urllib.parse.quote(model, safe="-._") + ":generateContent")
+        data = request(url, headers={"x-goog-api-key": key},
+                       payload={"contents": [{"parts": [{"text": prompt}]}],
+                                "generationConfig": {"maxOutputTokens": 220}}, timeout=20)
+        response = json.loads(data)
+        parts = response.get("candidates", [{}])[0].get("content", {}).get("parts", [])
         return " ".join(p.get("text", "") for p in parts).strip()[:550]
-    except Exception as exc:
-        print(f"AI summary skipped: {exc}")
+    except (OSError, ValueError, KeyError, IndexError, TypeError) as exc:
+        LOG.warning("AI summary skipped: %s", exc)
         return ""
