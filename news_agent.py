@@ -133,12 +133,29 @@ def main():
     seen = set(previous.get("seen", []))
     entries = get_entries()
     now = datetime.now(timezone.utc)
-    dated = [(e, published_at(e)) for e in entries if e["id"] not in seen]
-    recent = [(e, dt) for e, dt in dated if dt is not None and now - timedelta(hours=24) <= dt <= now + timedelta(minutes=10)]
-    fallback = [(e, dt) for e, dt in dated if dt is not None and now - timedelta(days=3) <= dt < now - timedelta(hours=24)]
+    # Match by normalized title across RSS sources and changing article URLs.
+    # Keep checking legacy title+URL hashes so previously sent stories stay excluded.
+    def title_key(item):
+        normalized = re.sub(r"[^\\w]+", " ", item["title"].casefold()).strip()
+        return "TITLE:" + hashlib.sha256(normalized.encode()).hexdigest()
+
+    recent = []
+    for item in entries:
+        dt = published_at(item)
+        if dt is None or not (now - timedelta(hours=24) <= dt <= now + timedelta(minutes=10)):
+            continue
+        key = title_key(item)
+        if key in seen or item["id"] in seen:
+            continue
+        recent.append((item, dt, key))
     recent.sort(key=lambda pair: pair[1], reverse=True)
-    fallback.sort(key=lambda pair: pair[1], reverse=True)
-    new = [e for e, _ in (recent + fallback)]
+    new = []
+    batch_titles = set()
+    for item, _, key in recent:
+        if key in batch_titles:
+            continue
+        batch_titles.add(key)
+        new.append(item)
     if not new:
         print("No new relevant news; no Telegram message sent.")
         return
@@ -171,7 +188,8 @@ def main():
     for message in messages:
         send_message(token, chat_id, message)
     seen.update(e["id"] for e in new)
-    STATE.write_text(json.dumps({"seen": list(seen)[-1000:]}, ensure_ascii=False, indent=2) + "\n")
+    seen.update(title_key(e) for e in new)
+    STATE.write_text(json.dumps({"seen": sorted(seen)}, ensure_ascii=False, indent=2) + "\n")
     print(f"Sent {len(new)} new stories.")
 
 
