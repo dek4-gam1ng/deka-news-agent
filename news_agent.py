@@ -68,7 +68,7 @@ SEARCHES = [
     ]
 ]
 
-KEYWORDS = ("judi", "judol", "gambling", "casino", "betting", "scam", "penipuan", "wni", "deportasi", "pemblokiran", "ppatk")
+KEYWORDS = ("judol", "judi online", "casino", "scam online", "deportasi")
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
 MAX_ITEMS = 7
 
