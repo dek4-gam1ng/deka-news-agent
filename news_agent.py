@@ -68,7 +68,7 @@ SEARCHES = [
     ]
 ]
 
-KEYWORDS = ("judol", "judi online", "casino", "scam online", "deportasi")
+KEYWORDS = ("judol", "judi online", "casino", "scam online", "deportasi", "fbi")
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
 
 
