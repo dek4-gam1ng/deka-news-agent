@@ -70,7 +70,6 @@ SEARCHES = [
 
 KEYWORDS = ("judol", "judi online", "casino", "scam online", "deportasi")
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
-MAX_ITEMS = 7
 
 
 def published_at(item):
@@ -93,7 +92,7 @@ def get_entries():
             response = requests.get(url, timeout=20, headers={"User-Agent": USER_AGENT})
             response.raise_for_status()
             feed = feedparser.parse(response.content)
-            for entry in feed.entries[:25]:
+            for entry in feed.entries:
                 title = BeautifulSoup(entry.get("title", ""), "html.parser").get_text(" ", strip=True)
                 summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text(" ", strip=True)
                 if not any(k in (title + " " + summary).lower() for k in KEYWORDS):
@@ -139,7 +138,7 @@ def main():
     fallback = [(e, dt) for e, dt in dated if dt is not None and now - timedelta(days=3) <= dt < now - timedelta(hours=24)]
     recent.sort(key=lambda pair: pair[1], reverse=True)
     fallback.sort(key=lambda pair: pair[1], reverse=True)
-    new = [e for e, _ in (recent + fallback)[:MAX_ITEMS]]
+    new = [e for e, _ in (recent + fallback)]
     if not new:
         print("No new relevant news; no Telegram message sent.")
         return
