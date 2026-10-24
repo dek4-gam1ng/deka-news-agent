@@ -12,7 +12,6 @@ from urllib.parse import quote
 
 import feedparser
 import requests
-from sources_ai import publisher_news
 from bs4 import BeautifulSoup
 
 STATE = Path("seen_news.json")
@@ -108,8 +107,6 @@ def get_entries():
                 }
         except Exception as exc:
             print(f"Feed failed ({label}): {exc}", file=sys.stderr)
-    for item in publisher_news(KEYWORDS):
-        found.setdefault(item['id'], item)
     return list(found.values())
 
 
