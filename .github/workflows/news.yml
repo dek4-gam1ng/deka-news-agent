@@ -2,7 +2,7 @@ name: DEKA JARVIS
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '15 */4 * * *'
 permissions:
   contents: write
 concurrency:
@@ -24,12 +24,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || { [ $(( $(date -u +%-H) % 4 )) -eq 0 ] && [ "$(date -u +%-M)" -ge 15 ] && [ "$(date -u +%-M)" -lt 25 ]; }; then
-            python news_agent.py
-          else
-            echo "News monitoring is not due."
-          fi
+        run: python news_agent.py
       - name: Save seen headlines
         if: success()
         run: |
