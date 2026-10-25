@@ -19,49 +19,49 @@ STATE = Path("seen_news.json")
 SEARCHES = [
     [
         "🇰🇭 Cambodia · Phnom Penh Post",
-        "site:phnompenhpost.com Cambodia gambling OR scam OR crackdown when:14d",
+        "site:phnompenhpost.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Khmer Times",
-        "site:khmertimeskh.com Cambodia gambling OR scam OR crackdown when:14d",
+        "site:khmertimeskh.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · CamboJA",
-        "site:cambojanews.com Cambodia gambling OR scam OR cybercrime when:14d",
+        "site:cambojanews.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Cambodianess",
-        "site:cambodianess.com Cambodia gambling OR scam OR crackdown when:14d",
+        "site:cambodianess.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇮🇩 Indonesia · ANTARA",
-        "site:antaranews.com judi online Kamboja penindakan when:14d",
+        "site:antaranews.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Kompas",
-        "site:kompas.com judi online Kamboja penindakan when:14d",
+        "site:kompas.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Tempo",
-        "site:tempo.co judi online Kamboja penindakan when:14d",
+        "site:tempo.co (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "id",
         "ID"
     ],
     [
         "🌏 Lintas negara · Reuters",
-        "site:reuters.com Cambodia Indonesia online gambling scam when:14d",
+        "site:reuters.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ]
