@@ -19,49 +19,49 @@ STATE = Path("seen_news.json")
 SEARCHES = [
     [
         "🇰🇭 Cambodia · Phnom Penh Post",
-        "site:phnompenhpost.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:phnompenhpost.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Khmer Times",
-        "site:khmertimeskh.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:khmertimeskh.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · CamboJA",
-        "site:cambojanews.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:cambojanews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Cambodianess",
-        "site:cambodianess.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:cambodianess.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ],
     [
         "🇮🇩 Indonesia · ANTARA",
-        "site:antaranews.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:antaranews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Kompas",
-        "site:kompas.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:kompas.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Tempo",
-        "site:tempo.co (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:tempo.co (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "id",
         "ID"
     ],
     [
         "🌏 Lintas negara · Reuters",
-        "site:reuters.com (judol OR \"judi online\" OR casino OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:reuters.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
         "en",
         "KH"
     ]
@@ -133,8 +133,8 @@ def main():
     # Match by normalized title across RSS sources and changing article URLs.
     # Keep checking legacy title+URL hashes so previously sent stories stay excluded.
     def title_key(item):
-        normalized = re.sub(r"[^\\w]+", " ", item["title"].casefold()).strip()
-        return "TITLE:" + hashlib.sha256(normalized.encode()).hexdigest()
+        normalized = re.sub(r"[^\w]+", " ", item["title"].casefold()).strip()
+        return "TITLE:v2:" + hashlib.sha256(normalized.encode()).hexdigest()
 
     recent = []
     for item in entries:
