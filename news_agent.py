@@ -10,6 +10,7 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import quote
+from zoneinfo import ZoneInfo
 
 import feedparser
 import requests
@@ -116,6 +117,7 @@ KEYWORDS = (
     "deportation", "trafficking"
 )
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
+WIB = ZoneInfo("Asia/Jakarta")
 
 SOURCE_SUFFIXES = (
     "kompas.com", "antara news", "antara news mataram", "tempo.co", "cnn indonesia",
@@ -130,14 +132,19 @@ GENERIC_STORY_WORDS = {
 }
 
 
-def normalize_title(title):
-    """Remove RSS/publisher boilerplate before duplicate comparison."""
-    value = title.casefold().strip()
-    value = re.sub(r"^(?:foto|video)\s*:\s*", "", value)
-    value = re.sub(r"\s+halaman\s+\d+\b", "", value)
+def clean_title(title):
+    """Remove RSS/publisher boilerplate while preserving display casing."""
+    value = title.strip()
+    value = re.sub(r"^(?:foto|video)\s*:\s*", "", value, flags=re.IGNORECASE)
+    value = re.sub(r"\s+halaman\s+\d+\b", "", value, flags=re.IGNORECASE)
     suffixes = "|".join(re.escape(name) for name in SOURCE_SUFFIXES)
-    value = re.sub(rf"(?:\s*-\s*(?:{suffixes}))+\s*$", "", value)
-    return re.sub(r"[^\w]+", " ", value).strip()
+    return re.sub(rf"(?:\s*-\s*(?:{suffixes}))+\s*$", "", value,
+                  flags=re.IGNORECASE).strip()
+
+
+def normalize_title(title):
+    """Normalize a cleaned headline before duplicate comparison."""
+    return re.sub(r"[^\w]+", " ", clean_title(title).casefold()).strip()
 
 
 def same_story(left, right):
@@ -256,21 +263,18 @@ def main():
     if not new:
         print("No new relevant news; no Telegram message sent.")
         return
-    header = "📰 DEKA NEWS | RISET INDONESIA–KAMBOJA\n"
-    header += datetime.now(timezone.utc).strftime("UTC %d/%m/%Y %H:%M") + "\n"
-    header += "Berita dikumpulkan dari RSS; selalu verifikasi melalui tautan sumber.\n"
+    header = "📰 <b>D3ka News</b>\n"
+    header += datetime.now(WIB).strftime("Update %d/%m/%Y · %H.%M WIB\n")
     chunks = [header]
     for idx, item in enumerate(new, 1):
-        source = escape(str(item.get("source", item["category"])))
         category = escape(item["category"])
-        title = escape(re.sub(r"[\x00-\x1f]", " ", item["title"])[:220])
-        published = escape(item["published"])
+        title = escape(re.sub(r"[\x00-\x1f]", " ", clean_title(item["title"]))[:220])
+        published = published_at(item).astimezone(WIB).strftime("%d %b %Y · %H.%M WIB")
         link = escape(item["link"], quote=True)
         chunks.append(
             f"\n<b>{idx}. {category}</b>\n"
             f"<b>{title}</b>\n"
-            f"🗞 Sumber: {source}\n"
-            f"📅 {published}\n"
+            f"🕒 {published}\n"
             f'🔗 <a href="{link}">Baca Berita</a>\n'
         )
     # Split under Telegram's 4096-character text limit.
