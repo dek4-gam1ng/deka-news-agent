@@ -1,5 +1,6 @@
 """Free Indonesia–Cambodia gambling-policy news monitor (no AI API needed)."""
 import hashlib
+from difflib import SequenceMatcher
 from html import escape
 import json
 import os
@@ -19,56 +20,140 @@ STATE = Path("seen_news.json")
 SEARCHES = [
     [
         "🇰🇭 Cambodia · Phnom Penh Post",
-        "site:phnompenhpost.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:phnompenhpost.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Khmer Times",
-        "site:khmertimeskh.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:khmertimeskh.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · CamboJA",
-        "site:cambojanews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:cambojanews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Cambodianess",
-        "site:cambodianess.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:cambodianess.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇰🇭 Cambodia · VOA Khmer",
+        "site:khmer.voanews.com (casino OR scam OR \"scam center\" OR \"scam centre\" OR trafficking OR deportation) when:1d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇰🇭 Cambodia · RFA Cambodia",
+        "site:rfa.org/english/cambodia (casino OR scam OR \"scam center\" OR \"scam centre\" OR trafficking OR deportation) when:1d",
+        "en",
+        "KH"
+    ],
+    [
+        "🇰🇭 Cambodia · AKP (sumber resmi)",
+        "site:akp.gov.kh (casino OR scam OR \"online fraud\" OR trafficking OR deportation) when:1d",
         "en",
         "KH"
     ],
     [
         "🇮🇩 Indonesia · ANTARA",
-        "site:antaranews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:antaranews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Kompas",
-        "site:kompas.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:kompas.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Tempo",
-        "site:tempo.co (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:tempo.co (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
+        "🇮🇩 Indonesia · CNN Indonesia",
+        "site:cnnindonesia.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "id",
+        "ID"
+    ],
+    [
+        "🇮🇩 Indonesia · Detik",
+        "site:detik.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "id",
+        "ID"
+    ],
+    [
+        "🇮🇩 Indonesia · Tirto",
+        "site:tirto.id (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "id",
+        "ID"
+    ],
+    [
+        "🇮🇩 Indonesia · The Jakarta Post",
+        "site:thejakartapost.com (\"online gambling\" OR casino OR scam OR \"online fraud\" OR trafficking OR deportation) when:1d",
+        "en",
+        "ID"
+    ],
+    [
         "🌏 Lintas negara · Reuters",
-        "site:reuters.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR FBI) when:1d",
+        "site:reuters.com (\"online gambling\" OR casino OR scam OR \"online fraud\" OR trafficking OR deportation) when:1d",
         "en",
         "KH"
     ]
 ]
 
-KEYWORDS = ("judol", "judi online", "casino", "scam online", "scam", "deportasi", "fbi")
+KEYWORDS = (
+    "judol", "judi online", "online gambling", "casino", "scam online", "scam",
+    "scam center", "scam centre", "online fraud", "cyberfraud", "deportasi",
+    "deportation", "trafficking"
+)
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
+
+SOURCE_SUFFIXES = (
+    "kompas.com", "antara news", "antara news mataram", "tempo.co", "cnn indonesia",
+    "detikcom", "detik.com", "tirto.id", "the jakarta post", "phnom penh post",
+    "khmer times", "camboja news", "cambodianess", "voa khmer", "radio free asia",
+    "reuters"
+)
+GENERIC_STORY_WORDS = {
+    "berita", "foto", "video", "halaman", "indonesia", "kamboja", "cambodia",
+    "online", "scam", "casino", "judi", "judol", "kasus", "terkait", "diduga",
+    "ungkap", "sebut", "terbaru", "hari", "news"
+}
+
+
+def normalize_title(title):
+    """Remove RSS/publisher boilerplate before duplicate comparison."""
+    value = title.casefold().strip()
+    value = re.sub(r"^(?:foto|video)\s*:\s*", "", value)
+    value = re.sub(r"\s+halaman\s+\d+\b", "", value)
+    suffixes = "|".join(re.escape(name) for name in SOURCE_SUFFIXES)
+    value = re.sub(rf"(?:\s*-\s*(?:{suffixes}))+\s*$", "", value)
+    return re.sub(r"[^\w]+", " ", value).strip()
+
+
+def same_story(left, right):
+    """Detect headline variants for one event from the same publisher."""
+    if left == right:
+        return True
+    left_words = set(left.split())
+    right_words = set(right.split())
+    common = left_words & right_words
+    smallest = max(1, min(len(left_words), len(right_words)))
+    if SequenceMatcher(None, left, right).ratio() >= 0.72:
+        return True
+    if len(common) / smallest >= 0.65:
+        return True
+    distinctive = common - GENERIC_STORY_WORDS
+    return len(common) >= 2 and bool(distinctive)
 
 
 def published_at(item):
@@ -126,15 +211,27 @@ def main():
     chat_id = os.getenv("TELEGRAM_CHAT_ID", "")
     if not token or not chat_id:
         raise RuntimeError("Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in GitHub Actions secrets")
-    previous = json.loads(STATE.read_text()) if STATE.exists() else {"seen": []}
+    previous = json.loads(STATE.read_text()) if STATE.exists() else {"seen": [], "titles": []}
     seen = set(previous.get("seen", []))
+    seen_titles = previous.get("titles", [])
     entries = get_entries()
     now = datetime.now(timezone.utc)
     # Match by normalized title across RSS sources and changing article URLs.
     # Keep checking legacy title+URL hashes so previously sent stories stay excluded.
-    def title_key(item):
+    def legacy_title_key(item):
         normalized = re.sub(r"[^\w]+", " ", item["title"].casefold()).strip()
         return "TITLE:v2:" + hashlib.sha256(normalized.encode()).hexdigest()
+
+    def title_key(item):
+        return "TITLE:v3:" + hashlib.sha256(normalize_title(item["title"]).encode()).hexdigest()
+
+    def duplicate_of_stored(item):
+        normalized = normalize_title(item["title"])
+        source = str(item.get("source", item["category"])).casefold()
+        return any(
+            record.get("source") == source and same_story(normalized, record.get("title", ""))
+            for record in seen_titles
+        )
 
     recent = []
     for item in entries:
@@ -142,16 +239,19 @@ def main():
         if dt is None or not (now - timedelta(hours=24) <= dt <= now + timedelta(minutes=10)):
             continue
         key = title_key(item)
-        if key in seen or item["id"] in seen:
+        if key in seen or legacy_title_key(item) in seen or item["id"] in seen or duplicate_of_stored(item):
             continue
         recent.append((item, dt, key))
     recent.sort(key=lambda pair: pair[1], reverse=True)
     new = []
-    batch_titles = set()
+    batch_titles = []
     for item, _, key in recent:
-        if key in batch_titles:
+        normalized = normalize_title(item["title"])
+        source = str(item.get("source", item["category"])).casefold()
+        if any(old_source == source and same_story(normalized, old_title)
+               for old_source, old_title in batch_titles):
             continue
-        batch_titles.add(key)
+        batch_titles.append((source, normalized))
         new.append(item)
     if not new:
         print("No new relevant news; no Telegram message sent.")
@@ -186,7 +286,14 @@ def main():
         send_message(token, chat_id, message)
     seen.update(e["id"] for e in new)
     seen.update(title_key(e) for e in new)
-    STATE.write_text(json.dumps({"seen": sorted(seen)}, ensure_ascii=False, indent=2) + "\n")
+    seen_titles.extend({
+        "source": str(e.get("source", e["category"])).casefold(),
+        "title": normalize_title(e["title"])
+    } for e in new)
+    STATE.write_text(json.dumps({
+        "seen": sorted(seen),
+        "titles": seen_titles[-500:]
+    }, ensure_ascii=False, indent=2) + "\n")
     print(f"Sent {len(new)} new stories.")
 
 
