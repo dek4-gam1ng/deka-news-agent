@@ -28,6 +28,7 @@
     "83563656c29a2093796ef4a18dee79e71d4ffb26fd4728cc567f84d42a5e128d",
     "84e23c54c50e11bf7fd959b56d3ac68a8b88d3c73422dd6eea197d9d920bff63",
     "8556d31f267c5252d0d05269c4c43c5ba637de7585632f36903fd4a24aedd2cd",
+    "86a3c60a8f406b4ae02e642e0c1ba343ab4af742c012f04cd7711008bbe1180f",
     "87fcd003c9fa62ad0eadcff56c5d3095ea46331c89f2c42d455d476e65e2f00e",
     "8ae770ba9b3c0d67bf55d602de4d8873a0e54f12bf5273dcc2171f0bc048c25d",
     "8e8206663535f3c5ad872c9142f9b5ba423017e16f2e5885e1e0432283c0225e",
@@ -77,6 +78,7 @@
     "TITLE:v2:f12108e827b8a13f64af53e5038b23d2fd61ac0aa15a8b81b65d07d1f0c91655",
     "TITLE:v2:f42de24f3d08f224ef728e47f852a8c2cfd939fed2e36d37d11747d76a21dd4d",
     "TITLE:v3:07243b0b43758e1ecf09196c3b9131f62972cdbdeeaba720e0c13d919beac076",
+    "TITLE:v3:44641437e836e7624556dcb510897d23c5a625e96058e99af92c1023ca4fc98d",
     "TITLE:v3:77e8d1017ca627c77efe9883970bcfab67f510118d6d21c3da4da4f40e06968a",
     "TITLE:v3:78cd2fda08beb0beae1a38f015b5f8559fd4bc89f86eb321d6d59ac9d68c6e15",
     "TITLE:v3:98f0dd1a33a4fa8451ea1a32be9a5949f885b268a09b5e1e2988a7850b4d7a62",
@@ -135,6 +137,10 @@
     {
       "source": "khmer times",
       "title": "in pictures phnom penh bars raided in human trafficking crackdown"
+    },
+    {
+      "source": "detikcom",
+      "title": "kurir paket di tegal ngaku dibegal ternyata rekayasa gegara terlilit judol"
     }
   ]
 }
