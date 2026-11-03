@@ -15,6 +15,7 @@
     "2a3b50c47812779ee7e4900843c3c84db3f85d298a79d77286ad2d5f5de76c0d",
     "330d086b069ee8d4e201c154205f886c42f611fd7bd1e5364d53549540d12f8f",
     "37c5dd2af4894614831c677ecf8dc89c0052f592475f179e1bb3979ac5e57617",
+    "3a4a380c13588348df51416273cb0427302bcee1b4ce62d9c55feb47c18b49fd",
     "41cdbe8f078b5e447f37d94fa6e71502cd045a1f5a61dcf5c41667863c1aaa14",
     "52fb47fca3f39744d082d2a39757f650c8b2ee1a881498d82fb052d77495c496",
     "5930106baec8978a2b6ac0455e9ee8edf825fbd8e08ce49d092f639cc04822d4",
@@ -87,8 +88,10 @@
     "TITLE:v3:07243b0b43758e1ecf09196c3b9131f62972cdbdeeaba720e0c13d919beac076",
     "TITLE:v3:1e4501c0532e5a568f0f346f397f20cf07679f3b2cd40aa46fadd3cadea4c4aa",
     "TITLE:v3:1f04be365f842cbf0952928624f797ae30b237bb91e47da553ceada95cdc9af0",
+    "TITLE:v3:20c87c942752a943aa80d53693a2ec8c14a2567ce0310c780e364627cd79e24c",
     "TITLE:v3:23d465eb393304db4b160447c5d78f9c62748b2e1571a9c536e1d63de9a97ffb",
     "TITLE:v3:44641437e836e7624556dcb510897d23c5a625e96058e99af92c1023ca4fc98d",
+    "TITLE:v3:6e78ca5ea5c24915d4e83d058b93663a873f0ca6a154655605fcb4a47c636bcb",
     "TITLE:v3:77e8d1017ca627c77efe9883970bcfab67f510118d6d21c3da4da4f40e06968a",
     "TITLE:v3:78cd2fda08beb0beae1a38f015b5f8559fd4bc89f86eb321d6d59ac9d68c6e15",
     "TITLE:v3:8aeed7bb2c177703f6e464dc0007524d7a30a84e78fc790414a48a21b5ba3768",
@@ -97,6 +100,7 @@
     "TITLE:v3:9cf2212e2013c523b9fb4727cded830bddfc7f851ab8e47aabf849723b133c58",
     "TITLE:v3:ac1960a529e71e1d62955431ccd667e3b6296a102ed2d089a32951bbf300d8cf",
     "TITLE:v3:cebe10f9da2e02d2fcfc2e5ed8fcc90e9f86d833fa4293c05794ee63fac8be0b",
+    "TITLE:v3:d2fb5f87e877f0b62e73df5158aa36afcd1681fd43013c50482d502085d3c22c",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a15412c1aef6b4b409965850114895b41368924eb00d0e8c364f89d886243ee3",
     "a2737935e7fffa0293215561ba5b234d97605eeae5a9cea51c71151d44eebfeb",
@@ -105,6 +109,7 @@
     "a8005b9118fea5b2e99ae36d7aa5bb55aee8d33d8dd9f0fff6c1ce2ebe55f34a",
     "aa277da068bd5c97f51ff290a633279ce2a5452c52d57a866f55f7f921fa0bd1",
     "aa7cafd50d7eaf4c90cd8cdebc96f9c54f9d3ae01193170765cedd5590f24962",
+    "ac6bd668a286b057b2e02da1931718a7b0b6b3de546c34bf83a3019fdff64929",
     "add960b0340c01acf32307b42bd135a1a1a73834caf8be497f0d3648266f35a9",
     "af2c4e7405d82b688fa65705c0a265502a9a4e2efba96873487b1715dbc4a5ed",
     "b693fe29e0b290ddaa096d1959179320882b3b10fa3322492a096f853eabce35",
@@ -131,6 +136,7 @@
     "f030520e971ad8f374d813fc6d0d8d91ffe7b13ee0f6edcbb6d75fd2d684b764",
     "f03676b424a56dfb16a3bf94ab4bceb931909a988a142d6b3642bc28d8127d09",
     "f2a358ae5b1fdb2e801487af910857cc9b46e4b52c23db90ca041a6fdaef4bb3",
+    "f686e5bf340761ad98cc3cab7aad82fb3238180c3ec94812d72ab254ce9e31d9",
     "f6f1af2f5907ba48b74142872d9a6357d5fd8bd956b1042b12c695a6413593d0",
     "f8a4459252a72390174ebad936670a746d8632bba7e566c80b74bcbbfa9b4347",
     "fa764530632da550be12e8e188b378c5caebab17fb2dc604d1851dfe35db29b0"
@@ -195,6 +201,18 @@
     {
       "source": "khmer times",
       "title": "man arrested for money laundering investment scam using telegram"
+    },
+    {
+      "source": "the jakarta post",
+      "title": "police probe alleged trafficking in russian military recruitment"
+    },
+    {
+      "source": "kompas.com",
+      "title": "modus baru promosi judol ala mlm dibongkar polda jateng admin ditangkap"
+    },
+    {
+      "source": "kompas.com",
+      "title": "police uncover human trafficking of indonesians for recruitment as russian mercenaries"
     }
   ]
 }
