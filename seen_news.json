@@ -30,6 +30,7 @@
     "82a26cae336e2e6f092f1bd703aeab95537feaa35fe6d17504088cddd5570fbf",
     "8317a2e58a52d4bcf40db23ad8bd56762e353c558ce36e66140625d7a743e28c",
     "83563656c29a2093796ef4a18dee79e71d4ffb26fd4728cc567f84d42a5e128d",
+    "843c9be46c8f6987d3f200d4646aef9d0213eb7fb100c554e74f980e511f8adb",
     "84e23c54c50e11bf7fd959b56d3ac68a8b88d3c73422dd6eea197d9d920bff63",
     "8556d31f267c5252d0d05269c4c43c5ba637de7585632f36903fd4a24aedd2cd",
     "86a3c60a8f406b4ae02e642e0c1ba343ab4af742c012f04cd7711008bbe1180f",
@@ -99,6 +100,7 @@
     "TITLE:v3:98f0dd1a33a4fa8451ea1a32be9a5949f885b268a09b5e1e2988a7850b4d7a62",
     "TITLE:v3:9cf2212e2013c523b9fb4727cded830bddfc7f851ab8e47aabf849723b133c58",
     "TITLE:v3:ac1960a529e71e1d62955431ccd667e3b6296a102ed2d089a32951bbf300d8cf",
+    "TITLE:v3:c3af95726640c7ddca74db79c47a02a2ed093dbe0bdae339367a89a6161c6572",
     "TITLE:v3:cebe10f9da2e02d2fcfc2e5ed8fcc90e9f86d833fa4293c05794ee63fac8be0b",
     "TITLE:v3:d2fb5f87e877f0b62e73df5158aa36afcd1681fd43013c50482d502085d3c22c",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
@@ -213,6 +215,10 @@
     {
       "source": "kompas.com",
       "title": "police uncover human trafficking of indonesians for recruitment as russian mercenaries"
+    },
+    {
+      "source": "antara news lampung",
+      "title": "polres pringsewu edukasi pelajar agar tak terjerat judi online antara news lampung"
     }
   ]
 }
