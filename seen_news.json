@@ -33,6 +33,7 @@
     "791290d7a621bc4fb6b7643638cebfd99390a9f837e0befc673a733c3204c1c3",
     "79cb12da6fd46bfca037884db8675afb886c750cda03e1caca142b9d78cd129d",
     "7cfd024b5cb45649a8e7b88b0fce7cce28e8e6b9fe81b8b48dfd10fd4ad332f2",
+    "81d336778d5fe3bec7987214cb51de51c3d550ffaae44c71f87b272b9d49ea3e",
     "82004217f5dd411d9e37dbfbb97d0f36e2f9714e0e5f7d1e8b2f14d22eae290e",
     "82a26cae336e2e6f092f1bd703aeab95537feaa35fe6d17504088cddd5570fbf",
     "8317a2e58a52d4bcf40db23ad8bd56762e353c558ce36e66140625d7a743e28c",
@@ -116,6 +117,7 @@
     "TITLE:v3:7fcfcc3a0c760bb9e91b33ec240c125c70e272df2133528e5d371c7894f42473",
     "TITLE:v3:8aeed7bb2c177703f6e464dc0007524d7a30a84e78fc790414a48a21b5ba3768",
     "TITLE:v3:9522887f9035833b8255f2ea26d094846fdf0522540c8155d18eebae5f404929",
+    "TITLE:v3:984378fd5c85d5caf5d34a60325f162ba462407dd66bd797318a7d249cf0a4b9",
     "TITLE:v3:98f0dd1a33a4fa8451ea1a32be9a5949f885b268a09b5e1e2988a7850b4d7a62",
     "TITLE:v3:9cf2212e2013c523b9fb4727cded830bddfc7f851ab8e47aabf849723b133c58",
     "TITLE:v3:9e8077bf44c506143f0957817e6b16c2e36c617bea14267869b73c4f337af29e",
@@ -321,6 +323,10 @@
     {
       "source": "detikfinance",
       "title": "ojk minta bank blokir 39 923 rekening terindikasi judol detikfinance"
+    },
+    {
+      "source": "antara news jatim",
+      "title": "kpai urges govt to repatriate child trafficking victims in singapore antara news jatim"
     }
   ]
 }
