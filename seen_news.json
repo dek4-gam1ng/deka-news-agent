@@ -28,6 +28,7 @@
     "5930106baec8978a2b6ac0455e9ee8edf825fbd8e08ce49d092f639cc04822d4",
     "5e5ff2f4cbcce6625fd30ad416b2a629e35854e9218c9481db49bc9b34c3fb31",
     "635c65b700c76cfc529dc145610215d6b1eeab5948e08e273ef65cb8cbfb6a07",
+    "690e2d0104876bf37c9f9df561d1684fd782b51c7d140122e39f005e11e1a263",
     "7458cf6ba406ff3031d27400b7c024161ac46615e29c690ee573e19280304722",
     "76eec7c782c027fc7674976eb8754c3c92237b8c3c08013f28f82a120e559a4c",
     "7800b5b1d7ab8ae8a6190b6ee1315e05e1e7bcf766c1181a29b29e83edb8f590",
@@ -117,6 +118,7 @@
     "TITLE:v3:7da801745e5bf2b95253e7c0afd009796d1e11eafafe56da7e8bc21b8634c244",
     "TITLE:v3:7fcfcc3a0c760bb9e91b33ec240c125c70e272df2133528e5d371c7894f42473",
     "TITLE:v3:8aeed7bb2c177703f6e464dc0007524d7a30a84e78fc790414a48a21b5ba3768",
+    "TITLE:v3:915ee399091bf5e06fcfe47e79b50dcc844295ced7e08b5e67688fab063bbe75",
     "TITLE:v3:9522887f9035833b8255f2ea26d094846fdf0522540c8155d18eebae5f404929",
     "TITLE:v3:984378fd5c85d5caf5d34a60325f162ba462407dd66bd797318a7d249cf0a4b9",
     "TITLE:v3:98f0dd1a33a4fa8451ea1a32be9a5949f885b268a09b5e1e2988a7850b4d7a62",
@@ -333,6 +335,10 @@
     {
       "source": "antara news banten",
       "title": "ojk minta bank periksa 39 923 rekening yang terindikasi judol antara news banten"
+    },
+    {
+      "source": "kompas.com",
+      "title": "berita terkini harian judol terbaru hari ini 84"
     }
   ]
 }
