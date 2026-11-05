@@ -12,6 +12,7 @@
     "1e68b6e6579fab9783bafaca4f4c49ad40996a189e228b73bd3c46587ea7a01e",
     "1e7f15b06ce9fd775ec55b4725851b6e6b42f4acbbd29bdfcbab826277ed87f0",
     "1fc4cfe99024c4341eabc00ac29d78a3804f866194ec18b08d7c173bfdfcef1f",
+    "21e09a4080860408c8692e5245b1e06e6700f89189c1375e4267b84989d68bed",
     "24d6079896713702a75e1c6e4cb7819ec7e1da43e11c7f9f72402f87a059f738",
     "25b8a8ae890817328e6b9f3f4e1801e995fb69afff47f852bd9c441688e6ee2b",
     "2a3b50c47812779ee7e4900843c3c84db3f85d298a79d77286ad2d5f5de76c0d",
@@ -131,6 +132,7 @@
     "TITLE:v3:dfdb05c53354e99ff4b261d1e0dae26849880cc3de23a108da60347be198404c",
     "TITLE:v3:e30b4b540f3c9d56baeec68e716745c3edb6dd2462485d68404e4b9da172cc33",
     "TITLE:v3:e63ed489e00cc916690e82a1a1710d51b4c1cff5a854e8ec9d4e4ca5f3246859",
+    "TITLE:v3:f1f9e6591a065f3e2bb3bdd154d6fa3ab6722cce525d6596b0d2ecc3560811fe",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a15412c1aef6b4b409965850114895b41368924eb00d0e8c364f89d886243ee3",
     "a2737935e7fffa0293215561ba5b234d97605eeae5a9cea51c71151d44eebfeb",
@@ -327,6 +329,10 @@
     {
       "source": "antara news jatim",
       "title": "kpai urges govt to repatriate child trafficking victims in singapore antara news jatim"
+    },
+    {
+      "source": "antara news banten",
+      "title": "ojk minta bank periksa 39 923 rekening yang terindikasi judol antara news banten"
     }
   ]
 }
