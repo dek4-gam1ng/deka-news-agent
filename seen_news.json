@@ -2,6 +2,7 @@
   "seen": [
     "01a297b149f9dff6f37292902d890cbd312f832a0b69f539a8397bbaca1332a5",
     "02dc25122dd5a890e5654a91b866566794d100850e810cadaae51749ef4296f4",
+    "0f8c4396665af46a8a0791a8b7e3aceeb7919ef5dca95a65e1b80b46dcf4f531",
     "143d44d6424c0d77e31f944a6848d9fcb971f572e5f7138af2ae96cb20b77de6",
     "1495ee99f827cdeffa291efacf548f678745a4f5ab2e3900990fdd6b339d6f62",
     "1770ba67d439d848de3f626d9b6e4405b000bff477aaaf69889dff109328679d",
@@ -112,6 +113,7 @@
     "TITLE:v3:78cd2fda08beb0beae1a38f015b5f8559fd4bc89f86eb321d6d59ac9d68c6e15",
     "TITLE:v3:7a07c8981475374c01cdddd7143ad120ca044b7753dc63f4d9036f30392131d2",
     "TITLE:v3:7da801745e5bf2b95253e7c0afd009796d1e11eafafe56da7e8bc21b8634c244",
+    "TITLE:v3:7fcfcc3a0c760bb9e91b33ec240c125c70e272df2133528e5d371c7894f42473",
     "TITLE:v3:8aeed7bb2c177703f6e464dc0007524d7a30a84e78fc790414a48a21b5ba3768",
     "TITLE:v3:9522887f9035833b8255f2ea26d094846fdf0522540c8155d18eebae5f404929",
     "TITLE:v3:98f0dd1a33a4fa8451ea1a32be9a5949f885b268a09b5e1e2988a7850b4d7a62",
@@ -125,6 +127,7 @@
     "TITLE:v3:d6795d79564eb5e27bfa037acc09c17a9ec1f4a0961eb9f8fb470c291870e562",
     "TITLE:v3:da973700b0fb79b1a24fe956bc08c794a8ad3a3353edd7322db6d4b7bb7a7176",
     "TITLE:v3:dfdb05c53354e99ff4b261d1e0dae26849880cc3de23a108da60347be198404c",
+    "TITLE:v3:e30b4b540f3c9d56baeec68e716745c3edb6dd2462485d68404e4b9da172cc33",
     "TITLE:v3:e63ed489e00cc916690e82a1a1710d51b4c1cff5a854e8ec9d4e4ca5f3246859",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a15412c1aef6b4b409965850114895b41368924eb00d0e8c364f89d886243ee3",
@@ -145,6 +148,7 @@
     "b86e8429a79b32c0692d5887ec235eedd30e6c05640954b214e73c32532ada39",
     "b98eeaae6459c0256de7e1b971e022604b330c6415e09211dbcb376ee92047c8",
     "ba147459ac496e19010df62aea2e919a681231fc2f6d06a87c9a39ed304a8a5b",
+    "be3d6dcebb02f4af01fe86725bc3a5a8acdaffb4835de9b94200ae3012a566e1",
     "bf7e731348d251bbfd723ac7042a12e53c7b3dd29ef71e74e3141f37d97fbe50",
     "c212fb9315eb3b8afb7ac2f360faa70f8b6fb96a59d9dba57d0306a5b72e2fba",
     "c39b950c146e7ccbd680c14dc08da12d5a9c3d30e76460bd6768e6ef0dcb8122",
@@ -309,6 +313,14 @@
     {
       "source": "cnn indonesia",
       "title": "komdigi konten judol wajib ditakedown platfofrm dalam 4 jam"
+    },
+    {
+      "source": "kompas.com",
+      "title": "berantas judi online ojk minta bank blokir 40 000 rekening"
+    },
+    {
+      "source": "detikfinance",
+      "title": "ojk minta bank blokir 39 923 rekening terindikasi judol detikfinance"
     }
   ]
 }
