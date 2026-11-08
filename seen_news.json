@@ -17,6 +17,7 @@
     "24d6079896713702a75e1c6e4cb7819ec7e1da43e11c7f9f72402f87a059f738",
     "25b8a8ae890817328e6b9f3f4e1801e995fb69afff47f852bd9c441688e6ee2b",
     "2a3b50c47812779ee7e4900843c3c84db3f85d298a79d77286ad2d5f5de76c0d",
+    "2f4ac69670d3aa52f9b3e9c0f343dc585a98218847d921d8e21f28a75285c5bd",
     "330d086b069ee8d4e201c154205f886c42f611fd7bd1e5364d53549540d12f8f",
     "37c5dd2af4894614831c677ecf8dc89c0052f592475f179e1bb3979ac5e57617",
     "3a4a380c13588348df51416273cb0427302bcee1b4ce62d9c55feb47c18b49fd",
@@ -111,6 +112,7 @@
     "TITLE:v3:5504bf4f1b3bfc2e249711900624e50b1247579f295250234276cd928410637e",
     "TITLE:v3:57f29eaf55f158bc8e620ecdaa80583813ee59b4a76024a9dd20f44cc4c21b14",
     "TITLE:v3:67d44fae5cf374a95f666a26f546d4c6fa896699361eb18184dc8ea553783db1",
+    "TITLE:v3:6bb367e399c7910e1aafe28cd1698268984e7de3738e87d6a0837ea396609104",
     "TITLE:v3:6e78ca5ea5c24915d4e83d058b93663a873f0ca6a154655605fcb4a47c636bcb",
     "TITLE:v3:75ddea4ba19a65f32f5e35c145d503d86805e6ee32071a36404b55e0179f9241",
     "TITLE:v3:778bbd052f180be0809f27da46ffde7b0db61238fe9ebe2bf6a521e028fb8890",
@@ -363,6 +365,10 @@
     {
       "source": "antara news kepri",
       "title": "imigrasi bintan deportasi warga tiongkok palsukan identitas antara news kepri"
+    },
+    {
+      "source": "khmer times",
+      "title": "govt freezes 300 million dollars and revokes casino licences in anti scam drive"
     }
   ]
 }
