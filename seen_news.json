@@ -111,6 +111,7 @@
     "TITLE:v3:44641437e836e7624556dcb510897d23c5a625e96058e99af92c1023ca4fc98d",
     "TITLE:v3:5443055f691f5f3ead8ccbb8355a68f62846ec04a23d1a482208b9cdf50414f6",
     "TITLE:v3:5504bf4f1b3bfc2e249711900624e50b1247579f295250234276cd928410637e",
+    "TITLE:v3:550f9db3d6189a4f04b25822601583ef647dda7a0bec88c104c167c964a9f151",
     "TITLE:v3:57f29eaf55f158bc8e620ecdaa80583813ee59b4a76024a9dd20f44cc4c21b14",
     "TITLE:v3:67d44fae5cf374a95f666a26f546d4c6fa896699361eb18184dc8ea553783db1",
     "TITLE:v3:6bb367e399c7910e1aafe28cd1698268984e7de3738e87d6a0837ea396609104",
@@ -184,6 +185,7 @@
     "e807557ee3409e9e7e4a108455883feaf339c0171e52d93b078cedbd99bc92f3",
     "e9294f0ae7a697a8098a984a9f4b9da3bf6ffa395a647576db23dc1d17d8f401",
     "eb9ab7903dbfa2183bf78322fbe77b0d680942686f6e133570f328db9d5c0bd2",
+    "ebe8afd3c8a6b8a30d1673bf96878814bf275472ef8472acc87a9aad496855d7",
     "ed9462ac55c022679020aff85ed86929eae080d47b768cb19395221b7ac35547",
     "ef18b735f5cc322058bfa5ea9ef9b9b625dbe44deefd2d282c8a89725e4e511f",
     "f030520e971ad8f374d813fc6d0d8d91ffe7b13ee0f6edcbb6d75fd2d684b764",
@@ -375,6 +377,10 @@
     {
       "source": "detikcom",
       "title": "malaysia deportasi 43 pmi ke parepare gegara overstay narkoba"
+    },
+    {
+      "source": "antara news",
+      "title": "tegur suami kerap main judol wanita di cengkareng jadi korban kdrt"
     }
   ]
 }
