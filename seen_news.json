@@ -18,6 +18,7 @@
     "25b8a8ae890817328e6b9f3f4e1801e995fb69afff47f852bd9c441688e6ee2b",
     "2a3b50c47812779ee7e4900843c3c84db3f85d298a79d77286ad2d5f5de76c0d",
     "2f4ac69670d3aa52f9b3e9c0f343dc585a98218847d921d8e21f28a75285c5bd",
+    "2fc7ab1ff60ff504f5fb1be1a47d03e033e34012b6131766e21c9be0fb2d6b64",
     "330d086b069ee8d4e201c154205f886c42f611fd7bd1e5364d53549540d12f8f",
     "37c5dd2af4894614831c677ecf8dc89c0052f592475f179e1bb3979ac5e57617",
     "3a4a380c13588348df51416273cb0427302bcee1b4ce62d9c55feb47c18b49fd",
@@ -141,6 +142,7 @@
     "TITLE:v3:dfdb05c53354e99ff4b261d1e0dae26849880cc3de23a108da60347be198404c",
     "TITLE:v3:e30b4b540f3c9d56baeec68e716745c3edb6dd2462485d68404e4b9da172cc33",
     "TITLE:v3:e63ed489e00cc916690e82a1a1710d51b4c1cff5a854e8ec9d4e4ca5f3246859",
+    "TITLE:v3:ec6f721a665e967b64eba4ccf03a89967749ff5b2217f4522f8a688e0c6f55e4",
     "TITLE:v3:f1f9e6591a065f3e2bb3bdd154d6fa3ab6722cce525d6596b0d2ecc3560811fe",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a15412c1aef6b4b409965850114895b41368924eb00d0e8c364f89d886243ee3",
@@ -369,6 +371,10 @@
     {
       "source": "khmer times",
       "title": "govt freezes 300 million dollars and revokes casino licences in anti scam drive"
+    },
+    {
+      "source": "detikcom",
+      "title": "malaysia deportasi 43 pmi ke parepare gegara overstay narkoba"
     }
   ]
 }
