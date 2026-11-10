@@ -138,6 +138,7 @@
     "TITLE:v3:9e8077bf44c506143f0957817e6b16c2e36c617bea14267869b73c4f337af29e",
     "TITLE:v3:a5356c7aa03013717d51797f71b6a1e5c29c363063f5ea106924cba365330081",
     "TITLE:v3:ac1960a529e71e1d62955431ccd667e3b6296a102ed2d089a32951bbf300d8cf",
+    "TITLE:v3:b600ce2853be2d8b0a07496063769f8b69df7ab7328d4b59cc52db3eb143aa1e",
     "TITLE:v3:b707db471be10b0bf5eae20ee41e84f42babaf3a8ea13ab0f5952fd3693d6227",
     "TITLE:v3:ba64ebb9ee1745748710494faaf64b22474a5a0c79a2b1c9fafe535e43300d36",
     "TITLE:v3:c3af95726640c7ddca74db79c47a02a2ed093dbe0bdae339367a89a6161c6572",
@@ -195,6 +196,7 @@
     "eb9ab7903dbfa2183bf78322fbe77b0d680942686f6e133570f328db9d5c0bd2",
     "ebe8afd3c8a6b8a30d1673bf96878814bf275472ef8472acc87a9aad496855d7",
     "ed9462ac55c022679020aff85ed86929eae080d47b768cb19395221b7ac35547",
+    "eedb67fa656a30f71dcbe194e4fe51e35503d4fb1b35e6c232f12d47ccfba63f",
     "ef18b735f5cc322058bfa5ea9ef9b9b625dbe44deefd2d282c8a89725e4e511f",
     "f030520e971ad8f374d813fc6d0d8d91ffe7b13ee0f6edcbb6d75fd2d684b764",
     "f03676b424a56dfb16a3bf94ab4bceb931909a988a142d6b3642bc28d8127d09",
@@ -405,6 +407,10 @@
     {
       "source": "reuters",
       "title": "trump s justice department has failed to award 75 of anti trafficking grants senator finds"
+    },
+    {
+      "source": "detikcom",
+      "title": "pria solo gondol laptop duit pokmas kelurahan puluhan juta demi judol"
     }
   ]
 }
