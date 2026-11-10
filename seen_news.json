@@ -2,6 +2,7 @@
   "seen": [
     "01a297b149f9dff6f37292902d890cbd312f832a0b69f539a8397bbaca1332a5",
     "02dc25122dd5a890e5654a91b866566794d100850e810cadaae51749ef4296f4",
+    "096cfbcd74186d41da6267ef2ccb4443da2bd897c40ac96f67a956b25edea0ad",
     "0f8c4396665af46a8a0791a8b7e3aceeb7919ef5dca95a65e1b80b46dcf4f531",
     "13ecb728b73e825d86caf98622f26c122d7adc305c827daaea126b42453aed97",
     "143d44d6424c0d77e31f944a6848d9fcb971f572e5f7138af2ae96cb20b77de6",
@@ -110,6 +111,7 @@
     "TITLE:v3:20c87c942752a943aa80d53693a2ec8c14a2567ce0310c780e364627cd79e24c",
     "TITLE:v3:23d465eb393304db4b160447c5d78f9c62748b2e1571a9c536e1d63de9a97ffb",
     "TITLE:v3:244a501295410835ab2a00c653e0ce7da919a092c337e60c4501e0b3bdaf25b3",
+    "TITLE:v3:29f6aedf76eca2bf643f967f430a3218f01a3b0b43e74474365bacabcabe22d3",
     "TITLE:v3:44641437e836e7624556dcb510897d23c5a625e96058e99af92c1023ca4fc98d",
     "TITLE:v3:46dff907f10188b82af7be94876011ddbb9a45db5a261d0abd9f64f13e882a02",
     "TITLE:v3:5443055f691f5f3ead8ccbb8355a68f62846ec04a23d1a482208b9cdf50414f6",
@@ -399,6 +401,10 @@
     {
       "source": "antara news",
       "title": "peserta magang kemkomdigi buat teknologi deteksi judol dan data menara"
+    },
+    {
+      "source": "reuters",
+      "title": "trump s justice department has failed to award 75 of anti trafficking grants senator finds"
     }
   ]
 }
