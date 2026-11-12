@@ -1,6 +1,7 @@
 {
   "seen": [
     "01a297b149f9dff6f37292902d890cbd312f832a0b69f539a8397bbaca1332a5",
+    "02765e9718a3997bf3c8c1cc5d148ae3a1b3af11ed2671e9ffe0e92beb6be2fe",
     "02dc25122dd5a890e5654a91b866566794d100850e810cadaae51749ef4296f4",
     "096cfbcd74186d41da6267ef2ccb4443da2bd897c40ac96f67a956b25edea0ad",
     "0f8c4396665af46a8a0791a8b7e3aceeb7919ef5dca95a65e1b80b46dcf4f531",
@@ -25,6 +26,7 @@
     "2fc7ab1ff60ff504f5fb1be1a47d03e033e34012b6131766e21c9be0fb2d6b64",
     "330d086b069ee8d4e201c154205f886c42f611fd7bd1e5364d53549540d12f8f",
     "37c5dd2af4894614831c677ecf8dc89c0052f592475f179e1bb3979ac5e57617",
+    "3a2c811557f2c58f9952c465cf2db86118ac298a714e95eb73359583b8d53df7",
     "3a4a380c13588348df51416273cb0427302bcee1b4ce62d9c55feb47c18b49fd",
     "41cdbe8f078b5e447f37d94fa6e71502cd045a1f5a61dcf5c41667863c1aaa14",
     "447f6de160a6222483bff44b563dd5fa94b30d3274766d94be176a86646e21ec",
@@ -143,6 +145,7 @@
     "TITLE:v3:7a07c8981475374c01cdddd7143ad120ca044b7753dc63f4d9036f30392131d2",
     "TITLE:v3:7da801745e5bf2b95253e7c0afd009796d1e11eafafe56da7e8bc21b8634c244",
     "TITLE:v3:7fcfcc3a0c760bb9e91b33ec240c125c70e272df2133528e5d371c7894f42473",
+    "TITLE:v3:8943d737184a360a375f8066afedc203e47d6e3fe9ab2f3c83a9972a9746ff93",
     "TITLE:v3:8aeed7bb2c177703f6e464dc0007524d7a30a84e78fc790414a48a21b5ba3768",
     "TITLE:v3:915ee399091bf5e06fcfe47e79b50dcc844295ced7e08b5e67688fab063bbe75",
     "TITLE:v3:9522887f9035833b8255f2ea26d094846fdf0522540c8155d18eebae5f404929",
@@ -172,6 +175,7 @@
     "TITLE:v3:e30b4b540f3c9d56baeec68e716745c3edb6dd2462485d68404e4b9da172cc33",
     "TITLE:v3:e63ed489e00cc916690e82a1a1710d51b4c1cff5a854e8ec9d4e4ca5f3246859",
     "TITLE:v3:ec6f721a665e967b64eba4ccf03a89967749ff5b2217f4522f8a688e0c6f55e4",
+    "TITLE:v3:ef68516cdae0dbabd3a01854bb3dbaff892089682581ce2138b3c9d89d5f2115",
     "TITLE:v3:f1f9e6591a065f3e2bb3bdd154d6fa3ab6722cce525d6596b0d2ecc3560811fe",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a01b076c4ecd06d73e9e630722ae4a9d4f80b4858b267dac09e45fe9075fbc28",
@@ -489,6 +493,14 @@
     {
       "source": "kompas.com",
       "title": "hakim pn lahat vonis mati terdakwa pembunuh disertai mutilasi ibu kandung dipicu uang judol"
+    },
+    {
+      "source": "detikcom",
+      "title": "wna suriah eksploitasi 19 pekerja resto di sidoarjo terancam deportasi"
+    },
+    {
+      "source": "phnom penh post",
+      "title": "thai businessman handed 1 244 year sentence over tour scam involving 311 victims"
     }
   ]
 }
