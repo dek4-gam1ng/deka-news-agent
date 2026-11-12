@@ -11,6 +11,7 @@
     "1790a8f416c5a3282a3030f0d0cbc3cec821daa76eda29683c3e4622d90765b3",
     "17f15ef94f6895e396b791ce02c6875f7489abd69f73df4af71a902df896fb29",
     "1b2251b78d94ae24bf96f7470bf5f93a7e5ebc25e62849937e46aee107410e01",
+    "1bf035fe20d3b61d7f9411b31af1a42ed1fe8776b80aa7fd591d8733f120cb5d",
     "1e68b6e6579fab9783bafaca4f4c49ad40996a189e228b73bd3c46587ea7a01e",
     "1e7f15b06ce9fd775ec55b4725851b6e6b42f4acbbd29bdfcbab826277ed87f0",
     "1fc4cfe99024c4341eabc00ac29d78a3804f866194ec18b08d7c173bfdfcef1f",
@@ -112,12 +113,14 @@
     "TITLE:v3:03def6645039cbaf7441b6e5d09c81a6d88726d631ba8b674ab6e80822c6c1fd",
     "TITLE:v3:06d7f2afac69e17a9a1632c71f9a7f4a98ec11c5d59cfde00221038950300dab",
     "TITLE:v3:07243b0b43758e1ecf09196c3b9131f62972cdbdeeaba720e0c13d919beac076",
+    "TITLE:v3:10f00790709520c7807d0fdd806973f4b9e623cbb8d7c6747c3b6497a617450c",
     "TITLE:v3:15737689da9effa0b7f14f237780313904cb16cbf7b0e864f62f8c84153807df",
     "TITLE:v3:1ccd5cf50248456e74cb1365fac5904d935503670690681d288da3c76f28cc3e",
     "TITLE:v3:1e4501c0532e5a568f0f346f397f20cf07679f3b2cd40aa46fadd3cadea4c4aa",
     "TITLE:v3:1ed58774deaf1b9ffe5b84ab2d4ffd4a662b132e038148e582d762bf69f65607",
     "TITLE:v3:1f04be365f842cbf0952928624f797ae30b237bb91e47da553ceada95cdc9af0",
     "TITLE:v3:20c87c942752a943aa80d53693a2ec8c14a2567ce0310c780e364627cd79e24c",
+    "TITLE:v3:20e4a2850f1fd89c1ee94f65ad41f39fe20c6d50025c94182e5eb5db7d6745e8",
     "TITLE:v3:23d465eb393304db4b160447c5d78f9c62748b2e1571a9c536e1d63de9a97ffb",
     "TITLE:v3:244a501295410835ab2a00c653e0ce7da919a092c337e60c4501e0b3bdaf25b3",
     "TITLE:v3:29f6aedf76eca2bf643f967f430a3218f01a3b0b43e74474365bacabcabe22d3",
@@ -190,6 +193,7 @@
     "b86e8429a79b32c0692d5887ec235eedd30e6c05640954b214e73c32532ada39",
     "b98eeaae6459c0256de7e1b971e022604b330c6415e09211dbcb376ee92047c8",
     "ba147459ac496e19010df62aea2e919a681231fc2f6d06a87c9a39ed304a8a5b",
+    "bca58154228b88604d03674dcd12cd394bbb88bbb8261a1246a97374b14ac4c7",
     "be3d6dcebb02f4af01fe86725bc3a5a8acdaffb4835de9b94200ae3012a566e1",
     "bf7e731348d251bbfd723ac7042a12e53c7b3dd29ef71e74e3141f37d97fbe50",
     "bf8dc207e99011dda2c113192bf7ef59cd9bd52b1fe97aecc2831ff24af0e5d8",
@@ -471,6 +475,14 @@
     {
       "source": "kompas.com",
       "title": "kurang tidur 1 jam risiko kena scam meningkat 13 persen"
+    },
+    {
+      "source": "cnn indonesia",
+      "title": "imigrasi bali deportasi 15 wna malaysia yang jadi admin pinjol"
+    },
+    {
+      "source": "kompas.com",
+      "title": "polres gresik bongkar judi online berkedok jual beli chip royal dream omzet capai rp 2 miliar sebulan"
     }
   ]
 }
