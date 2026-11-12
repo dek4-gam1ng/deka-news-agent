@@ -59,6 +59,7 @@
     "84e23c54c50e11bf7fd959b56d3ac68a8b88d3c73422dd6eea197d9d920bff63",
     "8556d31f267c5252d0d05269c4c43c5ba637de7585632f36903fd4a24aedd2cd",
     "86a3c60a8f406b4ae02e642e0c1ba343ab4af742c012f04cd7711008bbe1180f",
+    "86dcf9ea0bdcaf1691957e5c59e7dc4e65158e6d084177e8d15cec7f02425afc",
     "87fcd003c9fa62ad0eadcff56c5d3095ea46331c89f2c42d455d476e65e2f00e",
     "8ae770ba9b3c0d67bf55d602de4d8873a0e54f12bf5273dcc2171f0bc048c25d",
     "8e8206663535f3c5ad872c9142f9b5ba423017e16f2e5885e1e0432283c0225e",
@@ -128,6 +129,7 @@
     "TITLE:v3:23d465eb393304db4b160447c5d78f9c62748b2e1571a9c536e1d63de9a97ffb",
     "TITLE:v3:244a501295410835ab2a00c653e0ce7da919a092c337e60c4501e0b3bdaf25b3",
     "TITLE:v3:29f6aedf76eca2bf643f967f430a3218f01a3b0b43e74474365bacabcabe22d3",
+    "TITLE:v3:388a67f50b3c9bfa312290dc2c8b2dc8cdf2214cbae407753e81a162063e1692",
     "TITLE:v3:3fff0694d377b90bdf7ce6fd913afd62a3df78df5c177991def75d99879aa62f",
     "TITLE:v3:44641437e836e7624556dcb510897d23c5a625e96058e99af92c1023ca4fc98d",
     "TITLE:v3:46dff907f10188b82af7be94876011ddbb9a45db5a261d0abd9f64f13e882a02",
@@ -513,6 +515,10 @@
     {
       "source": "tirto.id",
       "title": "diduga sindikat investasi bodong 28 wna di bali dideportasi"
+    },
+    {
+      "source": "detikcom",
+      "title": "omzet situs judol rp 2 m sebulan kapolres gresik pemainnya banyak pelajar"
     }
   ]
 }
