@@ -21,25 +21,25 @@ STATE = Path("seen_news.json")
 SEARCHES = [
     [
         "🇰🇭 Cambodia · Phnom Penh Post",
-        "site:phnompenhpost.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:phnompenhpost.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Khmer Times",
-        "site:khmertimeskh.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:khmertimeskh.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · CamboJA",
-        "site:cambojanews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:cambojanews.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "en",
         "KH"
     ],
     [
         "🇰🇭 Cambodia · Cambodianess",
-        "site:cambodianess.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:cambodianess.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "en",
         "KH"
     ],
@@ -63,37 +63,37 @@ SEARCHES = [
     ],
     [
         "🇮🇩 Indonesia · ANTARA",
-        "site:antaranews.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:antaranews.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Kompas",
-        "site:kompas.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:kompas.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Tempo",
-        "site:tempo.co (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:tempo.co (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · CNN Indonesia",
-        "site:cnnindonesia.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:cnnindonesia.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Detik",
-        "site:detik.com (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:detik.com (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "id",
         "ID"
     ],
     [
         "🇮🇩 Indonesia · Tirto",
-        "site:tirto.id (judol OR \"judi online\" OR casino OR scam OR \"scam online\" OR deportasi OR trafficking) when:1d",
+        "site:tirto.id (casino OR scam OR \"scam online\" OR trafficking) when:1d",
         "id",
         "ID"
     ],
@@ -112,8 +112,8 @@ SEARCHES = [
 ]
 
 KEYWORDS = (
-    "judol", "judi online", "online gambling", "casino", "scam online", "scam",
-    "scam center", "scam centre", "online fraud", "cyberfraud", "deportasi",
+    "online gambling", "casino", "scam online", "scam",
+    "scam center", "scam centre", "online fraud", "cyberfraud",
     "deportation", "trafficking"
 )
 USER_AGENT = "DekaNewsResearch/1.0 (public RSS monitoring)"
