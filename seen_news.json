@@ -3,6 +3,7 @@
     "01a297b149f9dff6f37292902d890cbd312f832a0b69f539a8397bbaca1332a5",
     "02765e9718a3997bf3c8c1cc5d148ae3a1b3af11ed2671e9ffe0e92beb6be2fe",
     "02dc25122dd5a890e5654a91b866566794d100850e810cadaae51749ef4296f4",
+    "033baf3bc1249268a74b54f011c70c8ad658ebfe0275249a49b3b0dfb8e1f6bd",
     "096cfbcd74186d41da6267ef2ccb4443da2bd897c40ac96f67a956b25edea0ad",
     "0dc00ce34a917cadbf09f4f7978e865755bc38bb1b315706d994391fdfc63f7f",
     "0f8c4396665af46a8a0791a8b7e3aceeb7919ef5dca95a65e1b80b46dcf4f531",
@@ -195,6 +196,7 @@
     "TITLE:v3:ba64ebb9ee1745748710494faaf64b22474a5a0c79a2b1c9fafe535e43300d36",
     "TITLE:v3:bc3e7a47c17af83a218c90941cd06354cdf790283496d28438287fd1d32ec74e",
     "TITLE:v3:c0215fdbfb85e80cdda11979c2294b092e12367b9e92cbc64a3ae4bf5734dde6",
+    "TITLE:v3:c0aa7c588f3e3c90b490d43c6fee8f71496dbc4392fbd3eeb24076ab8d6bb5af",
     "TITLE:v3:c174b84010c4586248a1c05f91b24b3b0fd45f02240cc0cc8a0f58e7814799a4",
     "TITLE:v3:c2cce36525285e7203b3af9fd5a3a3ebad013f6199f2471fb56d7abd27dd9046",
     "TITLE:v3:c3af95726640c7ddca74db79c47a02a2ed093dbe0bdae339367a89a6161c6572",
@@ -627,6 +629,10 @@
     {
       "source": "antara news",
       "title": "ojk aplikasi anti scam masuk sandbox diharapkan bisa meluncur segera"
+    },
+    {
+      "source": "cnn indonesia",
+      "title": "polisi usut penipuan investasi tenun tonic dan online scam siantar"
     }
   ]
 }
