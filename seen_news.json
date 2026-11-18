@@ -40,6 +40,7 @@
     "41cdbe8f078b5e447f37d94fa6e71502cd045a1f5a61dcf5c41667863c1aaa14",
     "447f6de160a6222483bff44b563dd5fa94b30d3274766d94be176a86646e21ec",
     "46c2e7c12a2926fd76dd98eacf7534371b3be2126c2654ce630438cb5bfaa582",
+    "4bd0ed53cd68e99c57d233f7f7b267b14811996d1eef55886c128bb82560c529",
     "4f01a3480792f849be279caa2b4a31a9fbf898dd1770731d270089b03d9801d0",
     "4fb666e8b4795d34b76d50f4b14e0595dd565beab77c5d79342ce2250059f30e",
     "5283cadeb4d4c68137a324521a9fd78e95f141fa9b22351f4755a43116b4297c",
@@ -49,6 +50,7 @@
     "56066e7179f9acab172a0ceba448fb3530dec5669f190c7a1d40f823edcc19d0",
     "5930106baec8978a2b6ac0455e9ee8edf825fbd8e08ce49d092f639cc04822d4",
     "5e5ff2f4cbcce6625fd30ad416b2a629e35854e9218c9481db49bc9b34c3fb31",
+    "5f4d8bfc1853979c046659d9209c214c98b82c26c84115adbb37226d404788f4",
     "6032e623b0acb147d692ce0d3881a47b5baefc21413c09faad470cd1567710df",
     "6226d6e9b1089e2a5e6a06243911b0a7dbf3944ae2f50e3fa57193e39db1bdff",
     "62712e8a9487ed18348b8ddefea8cf218f671b41105c90f8c30ebe7ab8fb5475",
@@ -168,6 +170,7 @@
     "TITLE:v3:57f29eaf55f158bc8e620ecdaa80583813ee59b4a76024a9dd20f44cc4c21b14",
     "TITLE:v3:62505cfab1faae38bfc647bd489d0215685d8075af471d68f9b3b4e4aaca806a",
     "TITLE:v3:67d44fae5cf374a95f666a26f546d4c6fa896699361eb18184dc8ea553783db1",
+    "TITLE:v3:6af58006d4359672b955b4a9a6e06fb663b7f955fdc028e37f355a89bc6f74e1",
     "TITLE:v3:6b2a5c617d616d241e16c7188c35207a1042bc74e619957d666292859746890e",
     "TITLE:v3:6bb367e399c7910e1aafe28cd1698268984e7de3738e87d6a0837ea396609104",
     "TITLE:v3:6e78ca5ea5c24915d4e83d058b93663a873f0ca6a154655605fcb4a47c636bcb",
@@ -221,6 +224,7 @@
     "TITLE:v3:e63ed489e00cc916690e82a1a1710d51b4c1cff5a854e8ec9d4e4ca5f3246859",
     "TITLE:v3:e9aafe476bb6f57d3dfce18f32048d8d34c37cedfac08960ecfe0eed84ec875e",
     "TITLE:v3:e9f161d4d6cda956bb98686b464f174afd21f07cb466cea7cfeb82f216b9deec",
+    "TITLE:v3:eab01971cc10d0e5898362410abfb27017d69f8159df951c686de6d000810826",
     "TITLE:v3:eb664f66a69c7bc9b2e5ab670618dfc6479f007ff6e61589cece4a8432ae45b9",
     "TITLE:v3:ec6f721a665e967b64eba4ccf03a89967749ff5b2217f4522f8a688e0c6f55e4",
     "TITLE:v3:ef68516cdae0dbabd3a01854bb3dbaff892089682581ce2138b3c9d89d5f2115",
@@ -663,6 +667,14 @@
     {
       "source": "detiknews",
       "title": "kapolri bertemu menko polkam lapor kasus penyadapan hingga scam online detiknews"
+    },
+    {
+      "source": "tirto.id",
+      "title": "ojk ungkap modus tawaran kerja paruh waktu dan love scam"
+    },
+    {
+      "source": "antara news sumbar",
+      "title": "gasa 70 persen warga ri terpapar scam korban alami stres antara news sumbar"
     }
   ]
 }
