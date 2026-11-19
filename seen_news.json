@@ -27,7 +27,9 @@
     "25b8a8ae890817328e6b9f3f4e1801e995fb69afff47f852bd9c441688e6ee2b",
     "26c0651e7f39af8b4461884b04eb4ff3b4989a78f86a73943bc031e29e939deb",
     "2a3b50c47812779ee7e4900843c3c84db3f85d298a79d77286ad2d5f5de76c0d",
+    "2c1dad43a24e5fc8025579798098f54580e163870983acd640c57a40be086932",
     "2ce97a944401610c7e0544b520f6aafa31bc3811631a374023ca0c6e11305c45",
+    "2e626310b077e085ceea07e1978b5cbd1751e448c6aba2b6deb5b1228f1a2573",
     "2f4ac69670d3aa52f9b3e9c0f343dc585a98218847d921d8e21f28a75285c5bd",
     "2fc7ab1ff60ff504f5fb1be1a47d03e033e34012b6131766e21c9be0fb2d6b64",
     "3112587706c71732ac92f6ace1bfd6105407850b1b0274936b3579417be9007d",
@@ -189,6 +191,8 @@
     "TITLE:v3:8c1cbba9f796f87123a5606a3d597fe5640a6b787534e77c8f3fa8d795a6dced",
     "TITLE:v3:8c520fd4b62eba612474baf10f3464c3a0fcbbd7b583e68164bc8227e6c73213",
     "TITLE:v3:915ee399091bf5e06fcfe47e79b50dcc844295ced7e08b5e67688fab063bbe75",
+    "TITLE:v3:926c9e6c9d3928e2e6d06af7df117aece2a6175723238bccfc19f68e75784207",
+    "TITLE:v3:94e459dba4c805f13aa0aa4cdda1ae0f8dfa10f9cc859815056e7680a07a8c0f",
     "TITLE:v3:9522887f9035833b8255f2ea26d094846fdf0522540c8155d18eebae5f404929",
     "TITLE:v3:984378fd5c85d5caf5d34a60325f162ba462407dd66bd797318a7d249cf0a4b9",
     "TITLE:v3:98f0dd1a33a4fa8451ea1a32be9a5949f885b268a09b5e1e2988a7850b4d7a62",
@@ -226,6 +230,7 @@
     "TITLE:v3:e9f161d4d6cda956bb98686b464f174afd21f07cb466cea7cfeb82f216b9deec",
     "TITLE:v3:eab01971cc10d0e5898362410abfb27017d69f8159df951c686de6d000810826",
     "TITLE:v3:eb664f66a69c7bc9b2e5ab670618dfc6479f007ff6e61589cece4a8432ae45b9",
+    "TITLE:v3:eb6bc6926e4450707dfd0e5e50b2dc316d4dfe839f8b5326ab0a00cb1434d59f",
     "TITLE:v3:ec6f721a665e967b64eba4ccf03a89967749ff5b2217f4522f8a688e0c6f55e4",
     "TITLE:v3:ef68516cdae0dbabd3a01854bb3dbaff892089682581ce2138b3c9d89d5f2115",
     "TITLE:v3:f1f9e6591a065f3e2bb3bdd154d6fa3ab6722cce525d6596b0d2ecc3560811fe",
@@ -259,6 +264,7 @@
     "be3d6dcebb02f4af01fe86725bc3a5a8acdaffb4835de9b94200ae3012a566e1",
     "bf7e731348d251bbfd723ac7042a12e53c7b3dd29ef71e74e3141f37d97fbe50",
     "bf8dc207e99011dda2c113192bf7ef59cd9bd52b1fe97aecc2831ff24af0e5d8",
+    "bfe54ded07309156fccad92d87eb29f86288c6cf4811bb139bb883a0be74fcfc",
     "c212fb9315eb3b8afb7ac2f360faa70f8b6fb96a59d9dba57d0306a5b72e2fba",
     "c39b950c146e7ccbd680c14dc08da12d5a9c3d30e76460bd6768e6ef0dcb8122",
     "c6b47bdb46ec687eb92eb3d439caca779c85e1759cd8a8a2272809b3d338c8a3",
@@ -675,6 +681,18 @@
     {
       "source": "antara news sumbar",
       "title": "gasa 70 persen warga ri terpapar scam korban alami stres antara news sumbar"
+    },
+    {
+      "source": "kompas.com",
+      "title": "indodax aplikasi anti scam ojk bisa bantu masyarakat cegah penipuan digital"
+    },
+    {
+      "source": "antara news gorontalo",
+      "title": "indonesia as tetapkan strategi bersama berantas online scam antara news gorontalo"
+    },
+    {
+      "source": "kompas.com",
+      "title": "to prevent similar scams like tenun tonic from victimizing more people"
     }
   ]
 }
