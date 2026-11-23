@@ -87,6 +87,7 @@
     "8e8206663535f3c5ad872c9142f9b5ba423017e16f2e5885e1e0432283c0225e",
     "8ea503762255a9e6467691e689aec56012ca535a6fdfd5e428b8d266219fbe61",
     "900a2721af5b99ee62586239a03105635155ed6650351aa6d2ffb967881751df",
+    "901eecbbca6ca69009c7f13952a8dda4fc7a9f744ee4068e0a4b5add471417ab",
     "915172e6ab75a9996f768bcbd6bf39d7213dee3f931acf6445002b4daf666183",
     "91f3579266c98d1347f1663a1a2ada9e3ed881588f3378929caf2f9d70cb4f30",
     "92a71b0ba5d6a41656015cd67bba79d1bd61877b08be151de4e9f71d4b46354e",
@@ -193,6 +194,7 @@
     "TITLE:v3:78cd2fda08beb0beae1a38f015b5f8559fd4bc89f86eb321d6d59ac9d68c6e15",
     "TITLE:v3:7a07c8981475374c01cdddd7143ad120ca044b7753dc63f4d9036f30392131d2",
     "TITLE:v3:7da801745e5bf2b95253e7c0afd009796d1e11eafafe56da7e8bc21b8634c244",
+    "TITLE:v3:7e33fadeb6ac7d4abe071cf11c42760dd1d86adb650e885e2e980d6fc91f31a1",
     "TITLE:v3:7e61deb41109f95cfba07cf339f230f24568841d2829c417d17ebd486f908613",
     "TITLE:v3:7fcfcc3a0c760bb9e91b33ec240c125c70e272df2133528e5d371c7894f42473",
     "TITLE:v3:82f7cd0767fffd8629a15f71b6dd47335b66fb9ba1469eb43571844474991cf9",
@@ -220,6 +222,7 @@
     "TITLE:v3:b4f89a6bb323f80953724407eb32336270a2dce71486f47bcba58eb5b9830fc7",
     "TITLE:v3:b600ce2853be2d8b0a07496063769f8b69df7ab7328d4b59cc52db3eb143aa1e",
     "TITLE:v3:b707db471be10b0bf5eae20ee41e84f42babaf3a8ea13ab0f5952fd3693d6227",
+    "TITLE:v3:b8e6badf4d47cb539f5dd2b572745e320cf24aaf31e82ee2c113175acec6c71b",
     "TITLE:v3:b9c7702a43bdae1fd96cfbecff41c2bd793ac4e91cc1cfe960868b9ab3ee0cee",
     "TITLE:v3:ba64ebb9ee1745748710494faaf64b22474a5a0c79a2b1c9fafe535e43300d36",
     "TITLE:v3:bc3e7a47c17af83a218c90941cd06354cdf790283496d28438287fd1d32ec74e",
@@ -249,11 +252,13 @@
     "TITLE:v3:ec6f721a665e967b64eba4ccf03a89967749ff5b2217f4522f8a688e0c6f55e4",
     "TITLE:v3:ef68516cdae0dbabd3a01854bb3dbaff892089682581ce2138b3c9d89d5f2115",
     "TITLE:v3:f1f9e6591a065f3e2bb3bdd154d6fa3ab6722cce525d6596b0d2ecc3560811fe",
+    "TITLE:v3:f8404845f6faaa29d0f5b93b9858838934cf0ce97594dc6d7b0dbacf3fa98107",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a01b076c4ecd06d73e9e630722ae4a9d4f80b4858b267dac09e45fe9075fbc28",
     "a15412c1aef6b4b409965850114895b41368924eb00d0e8c364f89d886243ee3",
     "a2737935e7fffa0293215561ba5b234d97605eeae5a9cea51c71151d44eebfeb",
     "a31b4165b2f7d71d70dc1d4b6afba2e53a3d0a25516dfe510a44e1684122c9b1",
+    "a3aa9125e569fb8aeb5ef072acc4f92b42947919d1047fbdf527bc053cf0cdb3",
     "a551568b308da9d65831e437fde8852a019e35ce5365b84a6a21a0943e21f290",
     "a58cf839eaad1767ee9353c3bd9c006971318ffcb700f900fb62d12cb2bf0594",
     "a5af1459bf8d6e620d908eefeac30fbfd09221132602639746a53020bb53f787",
@@ -265,6 +270,7 @@
     "add960b0340c01acf32307b42bd135a1a1a73834caf8be497f0d3648266f35a9",
     "af2c4e7405d82b688fa65705c0a265502a9a4e2efba96873487b1715dbc4a5ed",
     "af330ee504b3c39b0d328902cc8aa6a80f272f8217bc80aaccaf37c470a3e810",
+    "b0185b973b5829458b29d03a301fc66cbee98517eec3950c817fb39a8bbd3758",
     "b4105b996215fb6ba166e84d1fddd6b656a1922b8bc315fbeb2e7eecd6cd9a85",
     "b45284da81bc59b8f3d0c41df9506e0b110c07aefed166db027f5545b2491a3a",
     "b5537215b4d831ccf4c95c44639cba23c914ddc46fd1adb7f5ee8de8b6463683",
@@ -747,6 +753,18 @@
     {
       "source": "detikcom",
       "title": "sinopsis film casino royale misi pertama james bond sebagai agen 007"
+    },
+    {
+      "source": "20detik",
+      "title": "scam makin canggih seberapa siap ojk melindungi masyarakat 20detik"
+    },
+    {
+      "source": "antara news megapolitan",
+      "title": "polda metro jaya ungkap sindikat pemerasan video ai hingga love scam kripto antara news megapolitan"
+    },
+    {
+      "source": "antara news",
+      "title": "polisi ungkap sindikat pemerasan video ai hingga love scam kripto"
     }
   ]
 }
