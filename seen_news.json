@@ -36,6 +36,7 @@
     "2fc7ab1ff60ff504f5fb1be1a47d03e033e34012b6131766e21c9be0fb2d6b64",
     "3112587706c71732ac92f6ace1bfd6105407850b1b0274936b3579417be9007d",
     "330d086b069ee8d4e201c154205f886c42f611fd7bd1e5364d53549540d12f8f",
+    "34b6ca80b690bb70ccb4a0d860ed6f5bfa1e1101cce258a8654ccb765dde1755",
     "37c5dd2af4894614831c677ecf8dc89c0052f592475f179e1bb3979ac5e57617",
     "3a2c811557f2c58f9952c465cf2db86118ac298a714e95eb73359583b8d53df7",
     "3a4a380c13588348df51416273cb0427302bcee1b4ce62d9c55feb47c18b49fd",
@@ -78,6 +79,7 @@
     "8317a2e58a52d4bcf40db23ad8bd56762e353c558ce36e66140625d7a743e28c",
     "83563656c29a2093796ef4a18dee79e71d4ffb26fd4728cc567f84d42a5e128d",
     "843c9be46c8f6987d3f200d4646aef9d0213eb7fb100c554e74f980e511f8adb",
+    "84ae99994460308bc1eef5d3f4558a40d404e1f557542ab864d5bbc76710eb55",
     "84e23c54c50e11bf7fd959b56d3ac68a8b88d3c73422dd6eea197d9d920bff63",
     "8556d31f267c5252d0d05269c4c43c5ba637de7585632f36903fd4a24aedd2cd",
     "86a3c60a8f406b4ae02e642e0c1ba343ab4af742c012f04cd7711008bbe1180f",
@@ -174,6 +176,7 @@
     "TITLE:v3:39ea6d2d4caa93992877f53a4892d8dc96d63e8fcb9156acb8c32da26cc03401",
     "TITLE:v3:3e8d5975bd209ca6246c2d5dba326717ad3e92df14c3918dcee8f317b76c2647",
     "TITLE:v3:3fff0694d377b90bdf7ce6fd913afd62a3df78df5c177991def75d99879aa62f",
+    "TITLE:v3:41bfd51aa15f1b1022c83acb028ae3ecf960c7f729812598ede4614145ac96a1",
     "TITLE:v3:425d0c8c6d97c7f3820a6753257f3f557868b5fdc6f4399481c61eea091f4e95",
     "TITLE:v3:44641437e836e7624556dcb510897d23c5a625e96058e99af92c1023ca4fc98d",
     "TITLE:v3:46dff907f10188b82af7be94876011ddbb9a45db5a261d0abd9f64f13e882a02",
@@ -257,6 +260,7 @@
     "TITLE:v3:ef68516cdae0dbabd3a01854bb3dbaff892089682581ce2138b3c9d89d5f2115",
     "TITLE:v3:f1f9e6591a065f3e2bb3bdd154d6fa3ab6722cce525d6596b0d2ecc3560811fe",
     "TITLE:v3:f8404845f6faaa29d0f5b93b9858838934cf0ce97594dc6d7b0dbacf3fa98107",
+    "TITLE:v3:fab3af50f6169d4c9f10d4120db410638a40a6af0bdc755ef7b5a7317306f486",
     "TITLE:v3:fc8fded721c1c2b9ca8f37d176bb8ddb8525876e49e555756d755854c9175559",
     "a01b076c4ecd06d73e9e630722ae4a9d4f80b4858b267dac09e45fe9075fbc28",
     "a15412c1aef6b4b409965850114895b41368924eb00d0e8c364f89d886243ee3",
@@ -777,6 +781,14 @@
     {
       "source": "detikinet",
       "title": "141 wni jadi tersangka scam di manila menkomdigi blokir saja tak cukup detikinet"
+    },
+    {
+      "source": "the jakarta post",
+      "title": "indonesia repatriates 139 nationals in manila scam bust"
+    },
+    {
+      "source": "antara news yogyakarta",
+      "title": "kemenimipas dukung proses hukum 139 wni terduga pelaku scamming filipina antara news yogyakarta"
     }
   ]
 }
