@@ -5,6 +5,7 @@
     "02dc25122dd5a890e5654a91b866566794d100850e810cadaae51749ef4296f4",
     "033baf3bc1249268a74b54f011c70c8ad658ebfe0275249a49b3b0dfb8e1f6bd",
     "096cfbcd74186d41da6267ef2ccb4443da2bd897c40ac96f67a956b25edea0ad",
+    "0ab2425360db0bc2647996c54acce87b5d7ae3b7701324a77b94f7a60a8e33a9",
     "0dc00ce34a917cadbf09f4f7978e865755bc38bb1b315706d994391fdfc63f7f",
     "0f8c4396665af46a8a0791a8b7e3aceeb7919ef5dca95a65e1b80b46dcf4f531",
     "13ecb728b73e825d86caf98622f26c122d7adc305c827daaea126b42453aed97",
@@ -221,6 +222,7 @@
     "TITLE:v3:9d6b69142a21e9cd7b2ede3f63addcb8185c92abba5055036c679686873a0ace",
     "TITLE:v3:9e8077bf44c506143f0957817e6b16c2e36c617bea14267869b73c4f337af29e",
     "TITLE:v3:9f1d192de07d905d795a343c9daf5bbf47bb3bca7c18bb1d277c081e43261cda",
+    "TITLE:v3:a22b271f5e44ddc21c714ac4fa26c1dab372e4954602b411255fc588d1d8f259",
     "TITLE:v3:a3fdd6b468c6220a0dc1c215fb681337ff709a9f14692944e02802de8eb70749",
     "TITLE:v3:a5356c7aa03013717d51797f71b6a1e5c29c363063f5ea106924cba365330081",
     "TITLE:v3:a954e1083bf29bc08b2c34d10f131c65a92c1739a259a2a2bfd154866e8997a8",
@@ -243,6 +245,7 @@
     "TITLE:v3:cebe10f9da2e02d2fcfc2e5ed8fcc90e9f86d833fa4293c05794ee63fac8be0b",
     "TITLE:v3:d2a545d1b46883b5dd4602b9ad4eb129012c78ba0d415eb22f65747c0841ee32",
     "TITLE:v3:d2fb5f87e877f0b62e73df5158aa36afcd1681fd43013c50482d502085d3c22c",
+    "TITLE:v3:d41171a1160d2cb37062412fd57cdc0c40baa30ec453854611c4d627f65ca0bd",
     "TITLE:v3:d6795d79564eb5e27bfa037acc09c17a9ec1f4a0961eb9f8fb470c291870e562",
     "TITLE:v3:d6dc37bb3dd3d632225b3a75f2276572d865a060f4a13736975408f85e383ab0",
     "TITLE:v3:da973700b0fb79b1a24fe956bc08c794a8ad3a3353edd7322db6d4b7bb7a7176",
@@ -284,6 +287,7 @@
     "b4105b996215fb6ba166e84d1fddd6b656a1922b8bc315fbeb2e7eecd6cd9a85",
     "b45284da81bc59b8f3d0c41df9506e0b110c07aefed166db027f5545b2491a3a",
     "b5537215b4d831ccf4c95c44639cba23c914ddc46fd1adb7f5ee8de8b6463683",
+    "b5d9fddc4f315c5030020bf36c24ed1cf8069d2c278b7da6ebcf2c9d1ca16808",
     "b693fe29e0b290ddaa096d1959179320882b3b10fa3322492a096f853eabce35",
     "b708d464f07d3534c92aa1885b9e42010cede1ec3d36ff5bed92f0f63b1f3d8b",
     "b7f6803409cf4f6597a31c6971c16ca761853743cadfac596671fe6f053bc689",
@@ -795,6 +799,14 @@
     {
       "source": "tempo.co",
       "title": "bagaimana sindikat online scam di filipina menipu wni"
+    },
+    {
+      "source": "camboja news",
+      "title": "us anti scam bill clears house could raise pressure on cambodia analyst says"
+    },
+    {
+      "source": "kompas.com",
+      "title": "di depan prabowo polri pamer bongkar sindikat scam internasional di filipina"
     }
   ]
 }
